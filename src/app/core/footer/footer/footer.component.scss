@@ -1,0 +1,96 @@
+@use "variables" as *;
+
+.footer--container,
+.footer--legalities {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer--container {
+  row-gap: $spacing-xl;
+  padding: $spacing-lg;
+  background-color: $primary-500;
+  position: relative;
+  bottom: 0;
+}
+
+.footer--info,
+.footer--legalities-info,
+.footer--links,
+.footer--socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer--socials {
+  width: 150px;
+  justify-content: space-between;
+}
+
+.footer--socials svg:first-child {
+  // facebook icon
+  margin: -7px;
+}
+
+.footer--links {
+  column-gap: $spacing-md;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer--socials svg {
+  color: $primary-text;
+  cursor: pointer;
+}
+
+.footer--links a {
+  text-decoration: none;
+  color: $primary-text;
+  font-weight: 500;
+}
+
+.footer--links a:hover {
+  color: $secondary-600;
+}
+
+.footer--info {
+  justify-content: space-between;
+}
+
+.footer--legalities-info {
+  justify-content: center;
+}
+
+.footer--info,
+.footer--legalities,
+.footer--legalities hr,
+.footer--legalities-info {
+  width: 100%;
+}
+
+.footer--legalities hr {
+  height: 1.1px;
+  border: none;
+  background-color: $primary-text;
+  margin-bottom: $spacing-md;
+}
+
+.footer--legalities-info {
+  align-self: center;
+  column-gap: $spacing-lg;
+}
+
+.footer--legalities-info a {
+  color: $primary-text;
+}
+
+.footer--legalities-info a:hover {
+  color: $grey-800;
+}
+
+.footer--info h5 {
+  font-weight: 500;
+}
