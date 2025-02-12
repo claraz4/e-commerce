@@ -1,9 +1,2 @@
 @use 'global' as *;
 @use 'variables' as *;
-
-button,
-a,
-input[type="submit"],
-input[type="button"] {
-  cursor: pointer;
-}

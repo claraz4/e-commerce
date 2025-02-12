@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
 }
 
 p {
@@ -49,4 +51,11 @@ h6 {
 
 h4, h5, h6 {
   font-weight: $h4-h5-h6-weight;
+}
+
+button,
+a,
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
 }
