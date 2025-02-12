@@ -1,0 +1,52 @@
+@use "variables" as *;
+
+.navbar--container {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar--logo {
+  color: $secondary-500;
+}
+
+.navbar--links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.navbar--links a {
+  font-size: $h6-size;
+  text-decoration: none;
+  color: $primary-text;
+  font-weight: 500;
+}
+
+.navbar--links a:hover {
+  color: $secondary-500;
+}
+
+.navbar-search-icons--container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.navbar--icons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.navbar-search-icons--container svg:hover {
+  cursor: pointer;
+  color: $secondary-500;
+}

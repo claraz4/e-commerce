@@ -1,0 +1,24 @@
+@use "variables" as *;
+
+.navbar-search--container {
+  width: 270px;
+  border-radius: 20px;
+  background-color: $grey-100;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-search--container input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: $primary-font;
+  width: 100%;
+  font-size: 0.9rem;
+  color: $grey-700;
+  padding-right: 7px;
+}
+

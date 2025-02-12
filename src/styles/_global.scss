@@ -1,0 +1,52 @@
+@use "variables" as *;
+
+body {
+  font-family: $primary-font;
+  color: $primary-text;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+// Header Styling
+h1, h2, h3, h4, h5, h6 {
+  font-family: $primary-font;
+  margin: 0;
+}
+
+h1 {
+  font-size: $h1-size;
+}
+
+h2 {
+  font-size: $h2-size;
+}
+
+h1, h2 {
+  font-weight: $h1-h2-weight;
+}
+
+h3 {
+  font-size: $h3-size;
+  font-weight: $h3-weight;
+}
+
+h4 {
+  font-size: $h4-size;
+}
+
+h5 {
+  font-size: $h5-size;
+}
+
+h6 {
+  font-size: $h6-size;
+}
+
+h4, h5, h6 {
+  font-weight: $h4-h5-h6-weight;
+}
