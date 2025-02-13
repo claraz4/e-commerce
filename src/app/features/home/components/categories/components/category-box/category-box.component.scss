@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+:host {
+  border: 2px $grey-300 solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 190px;
+  row-gap: calc($spacing-md - $spacing-xs);
+}
+
+:host h5 {
+  text-transform: capitalize;
+  font-weight: 400;
+  width: 80%;
+  height: 24px;
+  text-align: center;
+  line-height: 105%;
+}
+
+.category-box--icon {
+  width: fit-content;
+  display: flex;
+}

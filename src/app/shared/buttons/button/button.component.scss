@@ -1,16 +1,24 @@
 @use "variables" as *;
 
-.large-button--container {
+.button--container {
   background-color: $secondary-500;
   color: white;
   text-transform: uppercase;
   border: none;
   border-radius: 10px;
-  padding: 8px 12px;
-  font-size: 1.3rem;
   letter-spacing: -5%;
 }
 
-.large-button--container:hover {
+.button--container:hover {
   background-color: $secondary-600;
+}
+
+.large-button {
+  font-size: 1.3rem;
+  padding: 8px 12px;
+}
+
+.small-button {
+  font-size: 1.15rem;
+  padding: 6px 10px;
 }

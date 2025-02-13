@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LargeButtonComponent } from './large-button.component';
+import { BenefitBoxComponent } from './benefit-box.component';
 
-describe('LargeButtonComponent', () => {
-  let component: LargeButtonComponent;
-  let fixture: ComponentFixture<LargeButtonComponent>;
+describe('BenefitBoxComponent', () => {
+  let component: BenefitBoxComponent;
+  let fixture: ComponentFixture<BenefitBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LargeButtonComponent]
+      imports: [BenefitBoxComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LargeButtonComponent);
+    fixture = TestBed.createComponent(BenefitBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

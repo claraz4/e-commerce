@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {LargeButtonComponent} from '../../../../shared/buttons/large-button/large-button.component';
+import {ButtonComponent} from '../../../../shared/buttons/button/button.component';
 
 @Component({
   selector: 'app-home-intro',
   imports: [
-    LargeButtonComponent
+    ButtonComponent
   ],
   templateUrl: './home-intro.component.html',
   styleUrl: './home-intro.component.scss'

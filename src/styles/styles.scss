@@ -1,2 +1,6 @@
 @use 'global' as *;
 @use 'variables' as *;
+
+.page--container {
+  padding: $spacing-xxl;
+}

@@ -1,0 +1,12 @@
+@use "../../../../../../../styles/variables" as *;
+
+:host {
+  border: 2px $primary-text;
+  border-right: none;
+  border-left: none;
+  background-color: $primary-200;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
