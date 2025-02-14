@@ -1,7 +1,6 @@
 @use "variables" as *;
 
-.browse-categories--container {
-  width: 100%;
+:host {
   display: flex;
   flex-direction: column;
   row-gap: calc($spacing-md - $spacing-xs);
@@ -19,7 +18,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.browse-categories--container app-button {
+:host app-button {
   align-self: center;
   margin-top: $spacing-xs
 }

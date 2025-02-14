@@ -8,6 +8,7 @@ body {
   box-sizing: border-box;
   height: 100vh;
   width: 100%;
+  background-color: $background-color;
 }
 
 p {
@@ -70,4 +71,8 @@ input[type="button"] {
 
 button {
   font-family: $primary-font;
+}
+
+footer {
+  margin-top: calc($spacing-xxl * 2);
 }

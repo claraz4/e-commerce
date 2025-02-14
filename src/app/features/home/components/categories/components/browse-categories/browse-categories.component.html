@@ -1,17 +1,15 @@
-<div class="browse-categories--container">
-  <h2>Browse Categories</h2>
+<h2>Browse Categories</h2>
 
-  <div class="categories--container-short">
-    <app-category-box
-      *ngFor="let category of categories | keyvalue"
-      [categoryName]="category.key"
-      [categoryIcon]="category.value"
-    ></app-category-box>
-  </div>
-
-  <app-button
-    buttonSize="small"
-    buttonText="Show more"
-    [buttonClickCallback]="handleShowMore"
-  ></app-button>
+<div class="categories--container-short">
+  <app-category-box
+    *ngFor="let category of categories | keyvalue"
+    [categoryName]="category.key"
+    [categoryIcon]="category.value"
+  ></app-category-box>
 </div>
+
+<app-button
+  buttonSize="small"
+  buttonText="Show more"
+  [buttonClickCallback]="handleShowMore"
+></app-button>
