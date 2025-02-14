@@ -1,7 +1,7 @@
-@use "../../../../../../../styles/variables" as *;
+@use "variables" as *;
 
 :host {
-  border: 2px $primary-text;
+  border: 2px $primary-text solid;
   border-right: none;
   border-left: none;
   background-color: $primary-200;
@@ -9,4 +9,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: $spacing-xl;
+  column-gap: $spacing-xxl;
 }

@@ -1,0 +1,31 @@
+@use "variables" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: calc($spacing-md - $spacing-xs);
+  width: 250px;
+}
+
+.benefit--icon {
+  width: 100px;
+  height: 100px;
+  background-color: $primary-text;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host h6 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+:host p {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 300;
+}
