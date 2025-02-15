@@ -12,6 +12,12 @@
   row-gap: calc($spacing-md - $spacing-xs);
 }
 
+:host:hover {
+  background-color: $secondary-100;
+  cursor: pointer;
+  border-color: $secondary-400;
+}
+
 :host h5 {
   text-transform: capitalize;
   font-weight: 400;

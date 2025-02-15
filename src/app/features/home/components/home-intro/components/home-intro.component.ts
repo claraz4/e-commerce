@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ButtonComponent} from '../../../../shared/buttons/button/button.component';
+import {ButtonComponent} from '../../../../../shared/buttons/button/button.component';
 
 @Component({
   selector: 'app-home-intro',
