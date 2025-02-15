@@ -1,5 +1,9 @@
 @use "variables" as *;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $primary-font;
   color: $primary-text;
@@ -75,4 +79,15 @@ button {
 
 footer {
   margin-top: calc($spacing-xxl * 2);
+}
+
+input {
+  border: none;
+  background-color: $grey-100;
+  border-radius: 5px;
+  color: $grey-600;
+  outline-color: $secondary-500;
+  font-family: $primary-font;
+  padding: $spacing-xs $spacing-sm;
+  width: 100%;
 }

@@ -1,7 +1,10 @@
 <button
   (click)="buttonClickCallback()"
-  class="button--container"
-  [ngClass]="buttonSize === 'large' ? 'large-button' : 'small-button'"
+  [ngClass]="[
+    'button--container',
+    buttonClass ? buttonClass : '',
+    buttonSize === 'large' ? 'large-button' : 'small-button'
+  ]"
 >
   {{ buttonText }}
 </button>
