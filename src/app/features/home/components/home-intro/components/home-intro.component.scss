@@ -1,10 +1,10 @@
 @use "variables" as *;
 
 .home-intro--container {
-  padding: $spacing-xl $spacing-lg;
   background-image: url("../assets/home-img.jpg");
   background-position: right;
   background-size: cover;
+  padding: calc($spacing-lg + 80px) $spacing-lg $spacing-xl;
 }
 
 .home-intro--text h1 {
