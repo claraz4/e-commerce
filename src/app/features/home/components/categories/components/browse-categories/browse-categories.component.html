@@ -2,9 +2,9 @@
 
 <div class="categories--container-short">
   <app-category-box
-    *ngFor="let category of categories | keyvalue"
-    [categoryName]="category.key"
-    [categoryIcon]="category.value"
+    *ngFor="let category of categories"
+    [categoryName]="category.categoryName"
+    [categoryIcon]="category.categoryIcon"
   ></app-category-box>
 </div>
 

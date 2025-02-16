@@ -3,22 +3,69 @@ import {categoriesIcons} from '../../assets/categoriesIcons';
 import {CategoryBoxComponent} from '../category-box/category-box.component';
 import {KeyValuePipe, NgForOf} from '@angular/common';
 import {ButtonComponent} from '../../../../../../shared/buttons/button/button.component';
+import {CategoriesService} from '../../services/categories.service';
+import {ICategory} from '../../models/ICategory';
 
 @Component({
   selector: 'app-browse-categories',
   imports: [
     CategoryBoxComponent,
     NgForOf,
-    KeyValuePipe,
     ButtonComponent
   ],
   templateUrl: './browse-categories.component.html',
   styleUrl: './browse-categories.component.scss'
 })
 export class BrowseCategoriesComponent {
-  categories: { [key: string]: string } = categoriesIcons;
+  showMore: boolean = false;
+  categoriesLimit: number = 2;
 
-  handleShowMore() {
-    console.log('show more clicked');
+  allCategories: ICategory[] = [];
+  categories: ICategory[] = [];
+
+  ngOnInit(): void {
+    this.getCategories();
   }
+
+  handleShowMore = () => {};
+
+  // Get the categories
+  getCategories() {
+    this.categoriesService.getCategories()
+      .subscribe({
+        next: (data) => {
+          this.createCategories(data);
+          this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
+
+          // Handle show more/less
+          this.handleShowMore = () => {
+            this.showMore = !this.showMore;
+
+            if (this.showMore) {
+              this.categories = [ ...this.allCategories ];
+            } else {
+              this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
+            }
+          }
+
+
+        },
+        error: (error) => {
+          console.error('Error fetching categories:', error);
+        }
+      });
+  }
+
+  // Create the categories array
+  createCategories(data: string[]) {
+    for (let c of data) {
+      let newCategory: ICategory = {
+        categoryName: c,
+        categoryIcon: categoriesIcons[c] || ""
+      }
+      this.allCategories.push(newCategory);
+    }
+  }
+
+  constructor(private categoriesService: CategoriesService) { }
 }
