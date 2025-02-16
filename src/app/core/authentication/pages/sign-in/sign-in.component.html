@@ -7,12 +7,13 @@
   <div class="sign-in-up--form-container">
     <h3>Enter Your Info</h3>
 
-    <div class="sign-in-up--form">
+    <form class="sign-in-up--form" [formGroup]="signInForm">
       <div class="sign-in-up--form-row">
         <input
           type="text"
           placeholder="Email or Phone Number"
           name="credential"
+          formControlName="credential"
         />
       </div>
       <div class="sign-in-up--form-row">
@@ -20,13 +21,14 @@
           type="password"
           placeholder="Enter your password"
           name="password"
+          formControlName="password"
         />
         <p class="sign-in-up--switch-p">
           <span>Don't have an account? </span>
           <a href="/sign-up">Sign Up</a>
         </p>
       </div>
-    </div>
+    </form>
 
     <app-button
       buttonSize="small"

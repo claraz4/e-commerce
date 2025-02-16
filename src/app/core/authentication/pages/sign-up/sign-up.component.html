@@ -2,19 +2,21 @@
   <div class="sign-in-up--form-container">
     <h3>Create Your Account</h3>
 
-    <div class="sign-in-up--form">
+    <form class="sign-in-up--form" [formGroup]="signUpForm">
       <div class="sign-in-up--form-row">
         <input
           type="text"
           placeholder="Email"
-          name="credential"
+          name="email"
+          formControlName="email"
         />
       </div>
       <div class="sign-in-up--form-row">
         <input
           type="text"
           placeholder="Phone Number"
-          name="credential"
+          name="phone"
+          formControlName="phone"
         />
       </div>
       <div class="sign-in-up--form-row">
@@ -22,20 +24,22 @@
           type="password"
           placeholder="Password"
           name="password"
+          formControlName="password"
         />
       </div>
       <div class="sign-in-up--form-row">
         <input
           type="password"
           placeholder="Confirm Password"
-          name="password"
+          name="confirm-pass"
+          formControlName="confirmPassword"
         />
         <p class="sign-in-up--switch-p">
           <span>Already have an account? </span>
           <a href="/sign-in">Sign In</a>
         </p>
       </div>
-    </div>
+    </form>
 
     <app-button
       buttonSize="small"
