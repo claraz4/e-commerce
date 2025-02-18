@@ -27,7 +27,7 @@ export class BrowseCategoriesComponent {
     this.getCategories();
   }
 
-  handleShowMore = () => {};
+  // handleShowMore = () => {};
 
   // Get the categories
   getCategories() {
@@ -36,19 +36,6 @@ export class BrowseCategoriesComponent {
         next: (data) => {
           this.createCategories(data);
           this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
-
-          // Handle show more/less
-          this.handleShowMore = () => {
-            this.showMore = !this.showMore;
-
-            if (this.showMore) {
-              this.categories = [ ...this.allCategories ];
-            } else {
-              this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
-            }
-          }
-
-
         },
         error: (error) => {
           console.error('Error fetching categories:', error);
@@ -64,6 +51,17 @@ export class BrowseCategoriesComponent {
         categoryIcon: categoriesIcons[c] || ""
       }
       this.allCategories.push(newCategory);
+    }
+  }
+
+  // Handle show more/less
+  handleShowMore = () => {
+    this.showMore = !this.showMore;
+
+    if (this.showMore) {
+      this.categories = [ ...this.allCategories ];
+    } else {
+      this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
     }
   }
 

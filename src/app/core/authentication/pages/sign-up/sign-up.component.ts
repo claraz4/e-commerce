@@ -10,8 +10,7 @@ import {getFormValidationErrors} from '../../../../shared/utils/get-form-validat
   selector: 'app-sign-up',
   imports: [
     ButtonComponent,
-    ReactiveFormsModule,
-    NgClass
+    ReactiveFormsModule
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: '../authentication.component.scss'
