@@ -54,3 +54,16 @@
   cursor: pointer;
   color: $secondary-500;
 }
+
+.navbar--sign-up {
+  background-color: $secondary-500;
+  color: white;
+  text-transform: uppercase;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.navbar--sign-up:hover {
+  background-color: $secondary-700;
+}

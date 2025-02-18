@@ -29,5 +29,10 @@ export class AuthService {
     return !!accessToken;
   }
 
+  logout() {
+    this.cookieService.delete('accessToken');
+    this.cookieService.delete('refreshToken');
+  }
+
   constructor(private authApiService: AuthApiService, private cookieService: CookieService) { }
 }
