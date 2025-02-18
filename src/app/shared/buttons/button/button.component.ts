@@ -13,6 +13,6 @@ import {NgClass} from '@angular/common';
 export class ButtonComponent {
   @Input() buttonSize: string = "large";
   @Input() buttonText: string = "";
-  @Input() buttonClickCallback: () => void = () => { };
+  @Input() buttonClickCallback: () => void = () => {};
   @Input() buttonClass: string = "";
 }

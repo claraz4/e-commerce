@@ -45,6 +45,7 @@
       buttonSize="small"
       buttonText="Sign Up"
       buttonClass="sign-in-up--button"
+      [buttonClickCallback]="signUp()"
     >
     </app-button>
   </div>
@@ -53,4 +54,6 @@
     <h2>Welcome!</h2>
     <h6>We're excited to see you. Check out our products!</h6>
   </div>
+
+  <button (click)="handleClick()"></button>
 </div>
