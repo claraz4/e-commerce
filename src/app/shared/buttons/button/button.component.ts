@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgClass} from '@angular/common';
 
 @Component({
@@ -13,6 +13,9 @@ import {NgClass} from '@angular/common';
 export class ButtonComponent {
   @Input() buttonSize: string = "large";
   @Input() buttonText: string = "";
-  @Input() buttonClickCallback: () => void = () => {};
+  @Output() onButtonClickCallback:EventEmitter<any>= new EventEmitter<any>();
   @Input() buttonClass: string = "";
+  buttonClickCallback(){
+    this.onButtonClickCallback.emit()
+  }
 }

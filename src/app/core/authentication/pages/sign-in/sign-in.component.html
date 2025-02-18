@@ -13,7 +13,7 @@
           type="text"
           placeholder="Email or Phone Number"
           name="credential"
-          formControlName="credential"
+          formControlName="username"
         />
       </div>
       <div class="sign-in-up--form-row">
@@ -34,6 +34,7 @@
       buttonSize="small"
       buttonText="Sign In"
       buttonClass="sign-in-up--button"
+      (onButtonClickCallback)="handleLogin()"
     >
     </app-button>
   </div>
