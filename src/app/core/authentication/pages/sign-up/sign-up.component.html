@@ -4,19 +4,50 @@
 
     <form class="sign-in-up--form" [formGroup]="signUpForm">
       <div class="sign-in-up--form-row">
+        <p
+          *ngIf="errors.hasOwnProperty('required')"
+          class="error-text"
+        >{{ errors['required'] }}</p>
+        <div class="sign-up--name-container">
+            <input
+              type="text"
+              placeholder="First Name"
+              name="firstName"
+              formControlName="firstName"
+              [ngClass]="errors.hasOwnProperty('firstName') ? 'error-input' : ''"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+              formControlName="lastName"
+              [ngClass]="errors.hasOwnProperty('lastName') ? 'error-input' : ''"
+            />
+        </div>
+      </div>
+
+      <div class="sign-in-up--form-row">
         <input
           type="text"
           placeholder="Email"
           name="email"
           formControlName="email"
+          [ngClass]="errors.hasOwnProperty('email') ? 'error-input' : ''"
         />
+        <p
+          *ngIf="errors.hasOwnProperty('email') && errors['email'] !== 'required' ? 'error-text' : ''"
+          class="error-text"
+        >
+          {{ errors['email'] }}
+        </p>
       </div>
       <div class="sign-in-up--form-row">
         <input
           type="text"
-          placeholder="Phone Number"
-          name="phone"
-          formControlName="phone"
+          placeholder="Username"
+          name="username"
+          formControlName="username"
+          [ngClass]="errors.hasOwnProperty('username') ? 'error-input' : ''"
         />
       </div>
       <div class="sign-in-up--form-row">
@@ -25,6 +56,7 @@
           placeholder="Password"
           name="password"
           formControlName="password"
+          [ngClass]="errors.hasOwnProperty('password') ? 'error-input' : ''"
         />
       </div>
       <div class="sign-in-up--form-row">
@@ -33,18 +65,20 @@
           placeholder="Confirm Password"
           name="confirm-pass"
           formControlName="confirmPassword"
+          [ngClass]="errors.hasOwnProperty('confirmPassword') ? 'error-input' : ''"
         />
-        <p class="sign-in-up--switch-p">
-          <span>Already have an account? </span>
-          <a href="/sign-in">Sign In</a>
-        </p>
       </div>
+      <p class="sign-in-up--switch-p">
+        <span>Already have an account? </span>
+        <a href="/sign-in">Sign In</a>
+      </p>
     </form>
 
     <app-button
       buttonSize="small"
       buttonText="Sign Up"
       buttonClass="sign-in-up--button"
+      (onButtonClickCallback)="signUp()"
     >
     </app-button>
   </div>

@@ -6,6 +6,13 @@
   margin-top: 100px;
 }
 
-.input-error {
-  border: 1.5px red solid;
+.error-input {
+  border: 1.5px $error-red solid;
+}
+
+.error-text {
+  font-weight: 400;
+  color: $error-red;
+  font-size: 0.9rem;
+  margin: 0;
 }

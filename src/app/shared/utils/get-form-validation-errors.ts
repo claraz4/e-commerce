@@ -1,8 +1,14 @@
 import { FormGroup, ValidationErrors } from '@angular/forms';
 
-export function getFormValidationErrors(form: FormGroup) {
+const errorMessages = {
+  "required": "Required fields are missing.",
+  "email": "Incorrect email address."
+}
 
-  const result: { control: string; error: string; value: any; }[] = [];
+export function getFormValidationErrors(form: FormGroup) {
+  const result: { [key: string]: string } = { };
+  console.log(form);
+  console.log(form.controls);
   Object.keys(form.controls).forEach(key => {
     const control = form.get(key); // Get the control once
 
@@ -12,11 +18,15 @@ export function getFormValidationErrors(form: FormGroup) {
 
       // Loop through the errors and push them to the result array
       Object.keys(controlErrors).forEach(keyError => {
-        result.push({
-          'control': key,
-          'error': keyError,
-          'value': controlErrors[keyError]
-        });
+        if (keyError === "required") {
+          // specify that at least one key is missing
+          result[keyError] = errorMessages.required;
+          result[key] = "required";
+        } else if (keyError === "email") {
+          result[key] = errorMessages.email;
+        } else if (!result.hasOwnProperty(key)) {
+          result[key] = controlErrors[keyError];
+        }
       });
     }
   });
