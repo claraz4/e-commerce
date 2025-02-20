@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {NavbarComponent} from './core/navbar/navbar/navbar.component';
 import {FooterComponent} from './core/footer/footer/footer.component';
 import {NgIf} from '@angular/common';
@@ -21,11 +21,11 @@ export class AppComponent {
   showNoPageLayoutRoutes: string[] = ['/sign-in', '/sign-up'];
 
   constructor(private router: Router) {
-    this.router.events.subscribe(() => {
-      if (this.showNoPageLayoutRoutes.includes(router.url)) {
-        this.showPageLayout = false;
+    // every time navigation ends, check whether to display the navbar/footer or not
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.showPageLayout = !this.showNoPageLayoutRoutes.includes(this.router.url);
       }
     });
-
   }
 }

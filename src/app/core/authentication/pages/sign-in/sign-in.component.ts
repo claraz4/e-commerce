@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {IUserLogInForm} from '../../models/IUserLogInForm';
 import {IUserLogInResponse} from '../../models/IUserLogInResponse';
 import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
+import {AuthApiService} from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +19,7 @@ import {AuthService} from '../../services/auth.service';
 export class SignInComponent {
   signInForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private authApiService: AuthApiService) {
     this.signInForm = formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -26,6 +28,12 @@ export class SignInComponent {
 
   handleLogin() {
     const newForm: IUserLogInForm = this.signInForm.value;
-    this.authService.storeToken(newForm);
+    this.authApiService.login(newForm).subscribe({
+      next: (data) => {
+        this.authService.storeToken(data.accessToken, data.refreshToken);
+        this.router.navigate(['/']).then(r => {});
+      },
+      error: err => { console.log(err) }
+    });
   }
 }
