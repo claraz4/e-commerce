@@ -1,4 +1,4 @@
-@use "variables" as *;
+@use "../../../../../styles/variables" as *;
 
 .navbar--container {
   height: 70px;
@@ -50,7 +50,8 @@
   align-items: center;
 }
 
-.navbar-search-icons--container svg:hover {
+.navbar-search-icons--container svg:hover,
+.navbar--search-icons-clicked {
   cursor: pointer;
   color: $secondary-500;
 }
@@ -66,4 +67,9 @@
 
 .navbar--sign-up:hover {
   background-color: $secondary-700;
+}
+
+.navbar--profile-container {
+  display: flex;
+  position: relative;
 }

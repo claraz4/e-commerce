@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
-import {NavbarComponent} from './core/navbar/navbar/navbar.component';
+import {NavbarComponent} from './core/navbar/components/navbar/navbar.component';
 import {FooterComponent} from './core/footer/footer/footer.component';
 import {NgIf} from '@angular/common';
 

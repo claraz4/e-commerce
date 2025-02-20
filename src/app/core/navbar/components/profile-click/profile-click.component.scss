@@ -1,0 +1,21 @@
+@use 'variables' as *;
+
+:host {
+  position: absolute;
+  top: calc($spacing-lg - $spacing-xxs);
+  right: 0;
+  background-color: white;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  //border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  padding: $spacing-xs $spacing-lg;
+  cursor: pointer;
+}
+
+p:hover {
+  background-color: $secondary-200;
+}
