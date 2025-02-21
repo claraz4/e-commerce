@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+.status--chip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: $spacing-sm;
+  column-gap: $spacing-xs;
+  height: $spacing-md;
+  width: fit-content;
+  font-family: $primary-font;
+}
+
+.status--circle {
+  border-radius: 50%;
+  width: $spacing-xs;
+  height: $spacing-xs;
+}
+
+.status--available-text {
+  color: $status-available-text;
+}
+
+.status--available-bg {
+  background-color: $status-available-bg;
+}
+
+.status--available-circle-bg {
+  background-color: $status-available-text;
+}
+
+.status--running-low-text {
+  color: $status-running-low-text;
+}
+
+.status--running-low-bg {
+  background-color: $status-running-low-bg;
+}
+
+.status--running-low-circle-bg {
+  background-color: $status-running-low-text;
+}
+
+.status--out-of-stock-text {
+  color: $status-out-of-stock-text;
+}
+
+.status--out-of-stock-bg {
+  background-color: $status-out-of-stock-bg;
+}
+
+.status--out-of-stock-circle-bg {
+  background-color: $status-out-of-stock-text;
+}

@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+.delete-button--container {
+  width: fit-content;
+  padding: $spacing-xxs $spacing-sm;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-xs;
+  border-radius: 10px;
+  border: 1px $secondary-500 solid;
+  background-color: transparent;
+  color: $secondary-500;
+}
