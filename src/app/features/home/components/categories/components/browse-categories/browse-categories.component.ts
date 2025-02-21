@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {categoriesIcons} from '../../assets/categoriesIcons';
 import {CategoryBoxComponent} from '../category-box/category-box.component';
-import {KeyValuePipe, NgForOf} from '@angular/common';
+import {NgForOf} from '@angular/common';
 import {ButtonComponent} from '../../../../../../shared/buttons/button/button.component';
 import {CategoriesService} from '../../services/categories.service';
 import {ICategory} from '../../models/ICategory';
+import {ICategoryDTO} from '../../models/ICategoryDTO';
 
 @Component({
   selector: 'app-browse-categories',
@@ -44,11 +45,11 @@ export class BrowseCategoriesComponent {
   }
 
   // Create the categories array
-  createCategories(data: string[]) {
+  createCategories(data: ICategoryDTO[]) {
     for (let c of data) {
       let newCategory: ICategory = {
-        categoryName: c,
-        categoryIcon: categoriesIcons[c] || ""
+        categoryName: c.name,
+        categoryIcon: categoriesIcons[c.name] || ""
       }
       this.allCategories.push(newCategory);
     }

@@ -1,6 +1,6 @@
 <h2>Browse Categories</h2>
 
-<div class="categories--container-short">
+<div class="categories--container">
   <app-category-box
     *ngFor="let category of categories"
     [categoryName]="category.categoryName"
@@ -10,6 +10,6 @@
 
 <app-button
   buttonSize="small"
-  buttonText="Show more"
+  [buttonText]="showMore ? 'Show less' : 'Show more'"
   (onButtonClickCallback)="handleShowMore()"
 ></app-button>

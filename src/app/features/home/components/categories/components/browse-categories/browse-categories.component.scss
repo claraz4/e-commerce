@@ -6,16 +6,10 @@
   row-gap: calc($spacing-md - $spacing-xs);
 }
 
-.categories--container-short {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: calc($spacing-xl - $spacing-xs);
-}
-
-.categories--container-long {
+.categories--container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: $spacing-md;
 }
 
 :host app-button {
