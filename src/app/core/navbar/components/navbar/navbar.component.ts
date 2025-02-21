@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {NgClass, NgIf, NgStyle} from '@angular/common';
 import {AuthService} from '../../../authentication/services/auth.service';
 import {ProfileClickComponent} from '../profile-click/profile-click.component';
+import {AuthApiService} from '../../../authentication/services/auth-api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +25,7 @@ export class NavbarComponent {
   // Change navbar color when scrolling on home intro
   backgroundColor = 'rgba(255, 255, 255, 1)';
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService, private authApiService: AuthApiService) {
     // Get the current route
     this.router.events.subscribe(() => {
       this.url = this.router.url;
@@ -50,6 +51,7 @@ export class NavbarComponent {
 
   // Handle the click of the profile
   handleProfileClick() {
+    this.authApiService.getAuthUser().subscribe(user => console.log(user));
     this.showProfileClick = !this.showProfileClick;
   }
 

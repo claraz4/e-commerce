@@ -6,6 +6,8 @@ import {IUserLogInResponse} from '../models/IUserLogInResponse';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
+import {IRefreshTokenDTO} from '../models/IRefreshTokenDTO';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -32,13 +34,18 @@ export class AuthService {
   logout() {
     this.cookieService.delete('accessToken');
     this.cookieService.delete('refreshToken');
+    this.router.navigate(['/']).then(() => {});
   }
 
   refreshToken() {
-    return this.http.post<String>(`${environment.authUrl}/auth/refresh`, {
+    return this.http.post<IRefreshTokenDTO>(`${environment.authUrl}/auth/refresh`, {
       refreshToken: this.getRefreshToken()
     });
   }
 
-  constructor(private authApiService: AuthApiService, private cookieService: CookieService, private http: HttpClient) { }
+  constructor(
+    private cookieService: CookieService,
+    private http: HttpClient,
+    private router: Router
+  ) { }
 }

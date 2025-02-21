@@ -21,5 +21,9 @@ export class AuthApiService {
     return this.http.post<IUserSignUpResponse>(`${this.authUrl}/users/add`, form);
   }
 
+  getAuthUser() {
+    return this.http.get<IUserSignUpResponse>(`${this.authUrl}/user/me`);
+  }
+
   constructor(private http: HttpClient) { }
 }
