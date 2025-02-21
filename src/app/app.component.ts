@@ -4,7 +4,7 @@ import {NavbarComponent} from './core/navbar/components/navbar/navbar.component'
 import {FooterComponent} from './core/footer/footer/footer.component';
 import {NgIf} from '@angular/common';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
-
+import {NgxPermissionsModule} from 'ngx-permissions'
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
@@ -13,7 +13,8 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
-    NgIf
+    NgIf,
+    NgxPermissionsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

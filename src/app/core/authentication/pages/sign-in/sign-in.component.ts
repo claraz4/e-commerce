@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {ButtonComponent} from '../../../../shared/buttons/button/button.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {IUserLogInForm} from '../../models/IUserLogInForm';
-import {IUserLogInResponse} from '../../models/IUserLogInResponse';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {AuthApiService} from '../../services/auth-api.service';
@@ -19,7 +18,12 @@ import {AuthApiService} from '../../services/auth-api.service';
 export class SignInComponent {
   signInForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private authApiService: AuthApiService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private authApiService: AuthApiService
+  ) {
     this.signInForm = formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],

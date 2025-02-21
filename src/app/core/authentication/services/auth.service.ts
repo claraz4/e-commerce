@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AuthApiService} from './auth-api.service';
-import {IUserLogInForm} from '../models/IUserLogInForm';
 import {CookieService} from 'ngx-cookie-service';
-import {IUserLogInResponse} from '../models/IUserLogInResponse';
-import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {IRefreshTokenDTO} from '../models/IRefreshTokenDTO';
