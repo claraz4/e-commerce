@@ -4,6 +4,8 @@ import {IUserLogInForm} from '../models/IUserLogInForm';
 import {CookieService} from 'ngx-cookie-service';
 import {IUserLogInResponse} from '../models/IUserLogInResponse';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +16,16 @@ export class AuthService {
     this.cookieService.set('refreshToken', refreshToken);
   }
 
-  getToken(): string {
+  getAccessToken(): string {
     return this.cookieService.get('accessToken');
   }
 
+  getRefreshToken(): string {
+    return this.cookieService.get('refreshToken');
+  }
+
   isLoggedIn(): boolean {
-    const accessToken: string = this.getToken();
+    const accessToken: string = this.getAccessToken();
     return !!accessToken;
   }
 
@@ -28,5 +34,11 @@ export class AuthService {
     this.cookieService.delete('refreshToken');
   }
 
-  constructor(private authApiService: AuthApiService, private cookieService: CookieService) { }
+  refreshToken() {
+    return this.http.post<String>(`${environment.authUrl}/auth/refresh`, {
+      refreshToken: this.getRefreshToken()
+    });
+  }
+
+  constructor(private authApiService: AuthApiService, private cookieService: CookieService, private http: HttpClient) { }
 }

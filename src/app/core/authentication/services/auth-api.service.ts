@@ -5,6 +5,7 @@ import {IUserLogInResponse} from '../models/IUserLogInResponse';
 import {IUserLogInForm} from '../models/IUserLogInForm';
 import {IUserSignUpForm} from '../models/IUserSignUpForm';
 import {IUserSignUpResponse} from '../models/IUserSignUpResponse';
+import {AuthService} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
