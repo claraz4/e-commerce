@@ -1,0 +1,41 @@
+@use 'variables' as *;
+
+:host {
+  background-color: $primary-200;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-lg;
+  row-gap: $spacing-md;
+}
+
+.wishlist--title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wishlist--products-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+svg {
+  width: 56px;
+  height: 106px;
+  cursor: pointer;
+}
+
+path {
+  fill: $secondary-500;
+  stroke: $secondary-500;
+}
+
+svg:hover path {
+  fill: $secondary-700;
+  stroke: $secondary-700;
+}

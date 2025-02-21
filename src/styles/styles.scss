@@ -2,8 +2,8 @@
 @use 'variables' as *;
 
 .page--container {
-  padding: $spacing-xxl;
-  margin-top: 100px;
+  padding: $spacing-lg;
+  margin-top: 70px;
 }
 
 .error-input {
@@ -15,4 +15,8 @@
   color: $error-red;
   font-size: 0.9rem;
   margin: 0;
+}
+
+.flip-horizontal {
+  transform: rotate(-180deg);
 }
