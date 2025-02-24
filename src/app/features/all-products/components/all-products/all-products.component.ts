@@ -5,14 +5,16 @@ import {ProductsService} from '../../services/products.service';
 import {ProductBoxComponent} from '../../../../shared/products/product-box/product-box.component';
 import {NgForOf} from '@angular/common';
 import {IProductInfoDTO} from '../../models/IProductInfoDTO';
+import {PaginationComponent} from "../../../../shared/pagination/pagination/pagination.component";
 
 @Component({
   selector: 'app-all-products',
-  imports: [
-    ProductsSearchBarComponent,
-    ProductBoxComponent,
-    NgForOf
-  ],
+    imports: [
+        ProductsSearchBarComponent,
+        ProductBoxComponent,
+        NgForOf,
+        PaginationComponent
+    ],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss'
 })

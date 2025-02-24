@@ -1,0 +1,53 @@
+@use 'variables' as *;
+
+.pagination--arrow path {
+  fill: $secondary-700;
+}
+
+.left-arrow:hover .left-path,
+.right-arrow:hover .right-path {
+  fill: $secondary-700;
+}
+
+.left-arrow path,
+.right-arrow path {
+  fill: $secondary-500;
+}
+
+.left-arrow,
+.right-arrow {
+  cursor: pointer;
+}
+
+.pagination--arrow {
+  width: 11px;
+  height: 20px;
+}
+
+.pagination--input {
+  display: flex;
+  width: 33px;
+  padding: $spacing-xs calc($spacing-xs * 1.5);
+  font-size: 1rem;
+  color: $primary-text
+}
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-md;
+}
+
+.pagination--info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-xs;
+}
+
+.pagination--input::-webkit-outer-spin-button,
+.pagination--input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
