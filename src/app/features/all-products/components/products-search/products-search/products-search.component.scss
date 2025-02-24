@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: $spacing-sm;
+  border-radius: 10px;
+  border: 2px $grey-200 solid;
+  width: 25%;
+}
+
+:host(:focus-within) {
+  border: 2px $secondary-500 solid;
+}
+
+path {
+  stroke: $grey-500;
+}
+
+input {
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}

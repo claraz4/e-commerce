@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction:  row;
+  align-items: center;
+  column-gap: $spacing-xs;
+  cursor: pointer;
+}
+
+svg {
+  width: 30px;
+  height: 30px;
+}
+
+path {
+  fill: $primary-500;
+}
+
+.sort--text {
+  color: $primary-500;
+}
+
+:host:hover path {
+  fill: $primary-700;
+}
+
+:host:hover .sort--text {
+  color: $primary-700;
+}

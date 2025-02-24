@@ -1,0 +1,9 @@
+<app-products-search-bar />
+<div class="products--container">
+  <app-product-box
+    *ngFor="let product of allProducts"
+    [productName]="product.title"
+    [productPrice]="product.price"
+    [imageSrc]="product.images[0]"
+  />
+</div>
