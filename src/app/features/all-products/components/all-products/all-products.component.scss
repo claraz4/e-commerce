@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+:host {
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,25 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction:  row;
+  align-items: center;
+  column-gap: $spacing-xs;
+  cursor: pointer;
+}
+
+path {
+  stroke: $primary-500;
+}
+
+.filter-text {
+  color: $primary-500;
+}
+
+:host:hover path {
+  stroke: $primary-700;
+}
+
+:host:hover .sort--text {
+  color: $primary-700;
+}
