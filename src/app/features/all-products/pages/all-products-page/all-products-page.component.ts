@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {WishListComponent} from '../../components/wish-list/wish-list.component';
-import {ProductsService} from '../../services/products.service';
-import {IProductsDTO} from '../../models/IProductsDTO';
 import {AllProductsComponent} from '../../components/all-products/all-products.component';
 
 @Component({
@@ -14,14 +12,5 @@ import {AllProductsComponent} from '../../components/all-products/all-products.c
   styleUrl: './all-products-page.component.scss'
 })
 export class AllProductsPageComponent {
-  allProducts?: IProductsDTO[];
 
-  constructor(private productsService: ProductsService) { }
-
-  ngOnInit() {
-    // Get all the products
-    this.productsService.getAllProducts().subscribe({
-      next: data => { this.allProducts = data }
-    })
-  }
 }
