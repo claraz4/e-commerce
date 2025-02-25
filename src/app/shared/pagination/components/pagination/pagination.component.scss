@@ -30,8 +30,8 @@
 
 .pagination--input {
   display: flex;
-  width: 33px;
-  padding: $spacing-xs calc($spacing-xs * 1.5);
+  width: 40px;
+  padding: calc($spacing-xs * 1.2) calc($spacing-xs * 1.5);
   font-size: 1rem;
   color: $primary-text;
   text-align: center;

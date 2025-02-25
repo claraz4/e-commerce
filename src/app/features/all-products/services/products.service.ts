@@ -12,7 +12,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts(): Observable<IProductsDTO> {
-    return this.http.get<IProductsDTO>(this.apiUrl);
+  getAllProducts(limit: number, skip: number): Observable<IProductsDTO> {
+    return this.http.get<IProductsDTO>(this.apiUrl + `?limit=${limit}&skip=${skip}&select=title,price,images`);
   }
 }

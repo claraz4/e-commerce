@@ -11,6 +11,7 @@ import {PageService} from '../../services/page-service.service';
   styleUrl: './pagination.component.scss'
 })
 export class PaginationComponent {
+  @Input() handlePageChange?: (...args: any[]) => void;
   currentPage: number = 1;
   totalPages: number = 1;
   isFirstPage: boolean = true;
@@ -33,12 +34,19 @@ export class PaginationComponent {
   handlePrevClick() {
     this.pageService.decrementCurrentPage();
     this.updatePageFlags();
+
+    if (this.handlePageChange) {
+      this.handlePageChange();
+    }
   }
 
   // Handle click on next arrow
   handleNextClick() {
     this.pageService.incrementCurrentPage();
     this.updatePageFlags();
+    if (this.handlePageChange) {
+      this.handlePageChange();
+    }
   }
 
   // Handle the change of a page number
@@ -46,6 +54,10 @@ export class PaginationComponent {
     const target = event.target as HTMLInputElement;
     this.pageService.setCurrentPage(Number(target.value));
     this.updatePageFlags();
+
+    if (this.handlePageChange) {
+      this.handlePageChange();
+    }
   }
 
   // Update the boolean states
