@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PageService {
   private currentPageSubject = new BehaviorSubject<number>(1);
-  private totalPageSubject = new BehaviorSubject<number>(1);
+  private totalPageSubject = new BehaviorSubject<number>(4);
   currentPage$ = this.currentPageSubject.asObservable();
   totalPage$ = this.totalPageSubject.asObservable();
 
@@ -28,12 +28,14 @@ export class PageService {
     }
   }
 
-  getCurrentPage() {
-    return this.currentPageSubject.getValue();
-  }
-
   setCurrentPage(page: number) {
-    this.currentPageSubject.next(page);
+    if (page > this.totalPageSubject.getValue()) {
+      this.currentPageSubject.next(this.totalPageSubject.getValue());
+    } else if (page < 1) {
+      this.currentPageSubject.next(1);
+    } else {
+      this.currentPageSubject.next(page);
+    }
   }
 
   setTotalPages(total: number) {

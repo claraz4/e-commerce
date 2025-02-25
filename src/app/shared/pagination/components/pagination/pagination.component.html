@@ -12,6 +12,7 @@
     type="number"
     [value]="currentPage"
     class="pagination--input"
+    (change)="handleChange($event)"
   />
   <p>of {{ totalPages }}</p>
 </div>

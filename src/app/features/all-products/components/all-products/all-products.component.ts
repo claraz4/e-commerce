@@ -5,7 +5,7 @@ import {ProductsService} from '../../services/products.service';
 import {ProductBoxComponent} from '../../../../shared/products/product-box/product-box.component';
 import {NgForOf} from '@angular/common';
 import {IProductInfoDTO} from '../../models/IProductInfoDTO';
-import {PaginationComponent} from "../../../../shared/pagination/pagination/pagination.component";
+import {PaginationComponent} from "../../../../shared/pagination/components/pagination/pagination.component";
 
 @Component({
   selector: 'app-all-products',
@@ -28,7 +28,6 @@ export class AllProductsComponent {
     this.productsService.getAllProducts().subscribe({
       next: data => {
         this.allProducts = data.products;
-        console.log(data);
       }
     })
   }

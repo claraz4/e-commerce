@@ -7,8 +7,6 @@ const errorMessages = {
 
 export function getFormValidationErrors(form: FormGroup) {
   const result: { [key: string]: string } = { };
-  console.log(form);
-  console.log(form.controls);
   Object.keys(form.controls).forEach(key => {
     const control = form.get(key); // Get the control once
 

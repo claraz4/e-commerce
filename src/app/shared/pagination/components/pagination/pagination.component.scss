@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+:host {
+  margin-top: $spacing-md;
+}
+
 .pagination--arrow path {
   fill: $secondary-700;
 }
@@ -29,7 +33,8 @@
   width: 33px;
   padding: $spacing-xs calc($spacing-xs * 1.5);
   font-size: 1rem;
-  color: $primary-text
+  color: $primary-text;
+  text-align: center;
 }
 
 :host {

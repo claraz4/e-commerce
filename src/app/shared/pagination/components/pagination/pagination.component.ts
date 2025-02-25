@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NgClass} from '@angular/common';
+import {PageService} from '../../services/page-service.service';
 
 @Component({
   selector: 'app-pagination',
@@ -10,34 +11,48 @@ import {NgClass} from '@angular/common';
   styleUrl: './pagination.component.scss'
 })
 export class PaginationComponent {
-  @Input() currentPage: number = 1;
-  @Input() totalPages: number = 1;
-
+  currentPage: number = 1;
+  totalPages: number = 1;
   isFirstPage: boolean = true;
   isLastPage: boolean = true;
 
   ngOnInit() {
-    this.isLastPage = this.currentPage === this.totalPages;
-    this.isFirstPage = this.currentPage === 1;
+    // Subscribe to the current and total pages
+    this.pageService.currentPage$.subscribe(data => {
+      this.currentPage = data;
+    });
+
+    this.pageService.totalPage$.subscribe(data => {
+      this.totalPages = data;
+    });
+
+    this.updatePageFlags();
   }
 
-  // Clicking the back arrow
+  // Handle click on prev arrow
   handlePrevClick() {
-    if (this.currentPage === 1) {
-      this.isFirstPage = true;
-    } else {
-      this.currentPage--;
-      this.isFirstPage = this.currentPage === 1;
-    }
+    this.pageService.decrementCurrentPage();
+    this.updatePageFlags();
   }
 
-  // Clicking the next arrow
+  // Handle click on next arrow
   handleNextClick() {
-    if (this.currentPage === this.totalPages) {
-      this.isLastPage = true;
-    } else {
-      this.currentPage++;
-      this.isLastPage = this.currentPage === this.totalPages;
-    }
+    this.pageService.incrementCurrentPage();
+    this.updatePageFlags();
   }
+
+  // Handle the change of a page number
+  handleChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.pageService.setCurrentPage(Number(target.value));
+    this.updatePageFlags();
+  }
+
+  // Update the boolean states
+  private updatePageFlags() {
+    this.isFirstPage = this.currentPage === 1;
+    this.isLastPage = this.currentPage === this.totalPages;
+  }
+
+  constructor(private pageService: PageService) { }
 }
