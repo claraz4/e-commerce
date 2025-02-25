@@ -25,6 +25,14 @@ export class AllProductsComponent {
   totalPages: number = 1;
   limitPerPage: number = 15;
 
+  // variables for sorting
+  isSorted: boolean = false;
+  sortedAttribute: string = "title";
+  sortedOrder: string = "asc";
+
+  // variable for searching
+  search: string = "hi";
+
   constructor(private productsService: ProductsService, private pageService: PageService) { }
 
   ngOnInit() {
@@ -40,7 +48,7 @@ export class AllProductsComponent {
     });
 
     // Get all the products
-    this.productsService.getAllProducts(this.limitPerPage, 0).subscribe({
+    this.productsService.getAllProducts(this.limitPerPage, 0, false, "").subscribe({
       next: data => {
         this.allProducts = data.products;
 
@@ -50,9 +58,16 @@ export class AllProductsComponent {
     })
   }
 
+  // ADD SOMETHING SO WHEN A CHANGE IS DETECTED (IN SORTING, SEARCH...) YOU CALL A FUNCTION THAT GETS US BACK TO THE FIRST PAGE + CALL API AGAIN
+
   // Handle the change of the page
   handlePageChange(): void {
-    this.productsService.getAllProducts(this.limitPerPage, (this.currentPage - 1) * this.limitPerPage).subscribe({
+    this.productsService.getAllProducts(
+      this.limitPerPage, (
+        this.currentPage - 1) * this.limitPerPage,
+        this.isSorted, this.search,
+        this.sortedAttribute, this.sortedOrder
+    ).subscribe({
       next: data => {
         console.log(data);
         this.allProducts = data.products;

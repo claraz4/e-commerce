@@ -12,7 +12,25 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts(limit: number, skip: number): Observable<IProductsDTO> {
-    return this.http.get<IProductsDTO>(this.apiUrl + `?limit=${limit}&skip=${skip}&select=title,price,images`);
+  getAllProducts(
+    limit: number, skip: number,
+    isSorted: boolean, search: string,
+    sortedAttribute?: string, sortedOrder?: string,
+  ): Observable<IProductsDTO> {
+
+    let regularQuery: string = `limit=${limit}&skip=${skip}&select=title,price,images`;
+
+    let sortedQuery: string = "";
+    if (isSorted) {
+      sortedQuery = `&sortBy=${sortedAttribute}&order=${sortedOrder}`;
+    }
+
+    let searchQuery: string = ""
+    if (search !== "") {
+      searchQuery = `/search?q=${search}&`;
+    } else {
+      regularQuery = "?" + regularQuery;
+    }
+    return this.http.get<IProductsDTO>(this.apiUrl + searchQuery + regularQuery + sortedQuery);
   }
 }
