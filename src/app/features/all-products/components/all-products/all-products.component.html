@@ -10,5 +10,6 @@
   />
 </div>
 <app-pagination
+  *ngIf="allProducts && allProducts.length > 0"
   [handlePageChange]="handlePageChange"
 />

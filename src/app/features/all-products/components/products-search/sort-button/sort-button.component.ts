@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {SortService} from '../../../services/sort.service';
 
@@ -12,6 +12,8 @@ import {SortService} from '../../../services/sort.service';
   styleUrl: './sort-button.component.scss'
 })
 export class SortButtonComponent {
+  @Input() handleSettingsChange?: () => void;
+
   showIsSorted: boolean = false;
   isSorted: boolean = false;
   sortedAttribute: string = "title";
@@ -30,6 +32,10 @@ export class SortButtonComponent {
     } else if (this.isSorted && this.sortedAttribute === "price") {
       // it was sorted by price
       this.sortService.setSortedAttribute("title");
+
+      if (this.handleSettingsChange) {
+        this.handleSettingsChange();
+      }
     } else {
       // it was not sorted
       this.setSorting("title");
@@ -40,8 +46,16 @@ export class SortButtonComponent {
   handleSortOrderClick() {
     if (this.sortedOrder === "asc") {
       this.sortService.setSortedOrder("desc");
+
+      if (this.handleSettingsChange) {
+        this.handleSettingsChange();
+      }
     } else if (this.sortedOrder === "desc") {
       this.sortService.setSortedOrder("asc");
+
+      if (this.handleSettingsChange) {
+        this.handleSettingsChange();
+      }
     }
   }
 
@@ -52,6 +66,10 @@ export class SortButtonComponent {
     } else if (this.isSorted && this.sortedAttribute === "price") {
       // it was sorted by price
       this.sortService.setSortedAttribute("price");
+
+      if (this.handleSettingsChange) {
+        this.handleSettingsChange();
+      }
     } else {
       // it was not sorted
       this.setSorting("price");
@@ -63,6 +81,10 @@ export class SortButtonComponent {
     this.sortService.setIsSorted(false);
     this.sortService.setSortedAttribute("");
     this.sortService.setSortedOrder("");
+
+    if (this.handleSettingsChange) {
+      this.handleSettingsChange();
+    }
   }
 
   // Add sorting depending on the attribute
@@ -70,6 +92,10 @@ export class SortButtonComponent {
     this.sortService.setIsSorted(true);
     this.sortService.setSortedAttribute(sortedAttribute);
     this.sortService.setSortedOrder("asc");
+
+    if (this.handleSettingsChange) {
+      this.handleSettingsChange();
+    }
   }
 
   constructor(private sortService: SortService) {

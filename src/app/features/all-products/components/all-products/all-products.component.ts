@@ -2,19 +2,20 @@ import { Component } from '@angular/core';
 import {ProductsSearchBarComponent} from '../products-search/products-search-bar/products-search-bar.component';
 import {ProductsService} from '../../services/products.service';
 import {ProductBoxComponent} from '../../../../shared/products/product-box/product-box.component';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {IProductInfoDTO} from '../../models/IProductInfoDTO';
 import {PaginationComponent} from "../../../../shared/pagination/components/pagination/pagination.component";
 import {PageService} from '../../../../shared/pagination/services/page-service.service';
 
 @Component({
   selector: 'app-all-products',
-    imports: [
-        ProductsSearchBarComponent,
-        ProductBoxComponent,
-        NgForOf,
-        PaginationComponent
-    ],
+  imports: [
+    ProductsSearchBarComponent,
+    ProductBoxComponent,
+    NgForOf,
+    PaginationComponent,
+    NgIf
+  ],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss'
 })
@@ -28,8 +29,6 @@ export class AllProductsComponent {
     // Subscribe to the current and total pages
     this.pageService.currentPage$.subscribe(data => this.currentPage = data);
     this.pageService.totalPage$.subscribe(data => this.totalPages = data);
-
-    this.handlePageChange = this.handlePageChange.bind(this); // to still be able to access the productsService in pagination
 
     // Get all the products
     this.productsService.getAllProducts(this.limitPerPage, 0).subscribe({
@@ -55,7 +54,7 @@ export class AllProductsComponent {
   };
 
   // Handle the change of the page
-  handlePageChange(): void {
+  handlePageChange = (): void => {
     this.productsService.getAllProducts(this.limitPerPage, (this.currentPage - 1) * this.limitPerPage).subscribe({
       next: data => {
         this.allProducts = data.products;
