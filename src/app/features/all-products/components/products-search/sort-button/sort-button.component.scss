@@ -44,6 +44,7 @@ path {
   cursor: pointer;
 }
 
-.sort-popup--container p:hover {
-  background-color: $secondary-200;
+.sort-popup--container p:hover,
+.sort-popup--selected-p {
+  background-color: $secondary-200 !important;
 }

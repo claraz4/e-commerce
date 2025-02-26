@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 import {SortService} from '../../../services/sort.service';
 
 @Component({
   selector: 'app-sort-button',
   imports: [
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './sort-button.component.html',
   styleUrl: './sort-button.component.scss'
@@ -15,21 +16,6 @@ export class SortButtonComponent {
   isSorted: boolean = false;
   sortedAttribute: string = "title";
   sortedOrder: string = "asc";
-
-  ngOnInit() {
-    this.sortService.isSorted$.subscribe(data => {
-      this.isSorted = data;
-      console.log("isSorted: " + data);
-    });
-    this.sortService.sortedAttribute$.subscribe(data => {
-      this.sortedAttribute = data;
-      console.log("sortedAttribute: " + data);
-    });
-    this.sortService.sortedOrder$.subscribe(data => {
-      this.sortedOrder = data;
-      console.log("sortedOrder: " + data);
-    });
-  }
 
   // Click on the sorted button
   handleSortedClick() {
@@ -77,5 +63,9 @@ export class SortButtonComponent {
     this.sortService.setSortedOrder("asc");
   }
 
-  constructor(private sortService: SortService) { }
+  constructor(private sortService: SortService) {
+    this.sortService.isSorted$.subscribe(data => this.isSorted = data);
+    this.sortService.sortedAttribute$.subscribe(data => this.sortedAttribute = data);
+    this.sortService.sortedOrder$.subscribe(data => this.sortedOrder = data);
+  }
 }

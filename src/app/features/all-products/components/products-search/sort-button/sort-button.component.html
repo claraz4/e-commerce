@@ -7,7 +7,13 @@
     Sort
   </p>
   <div class="sort-popup--container" *ngIf="showIsSorted">
-    <p>Name</p>
-    <p>Price</p>
+    <p
+      [ngClass]="isSorted && sortedAttribute === 'title' ? 'sort-popup--selected-p' : ''"
+      (click)="handleNameClick()"
+    >Name</p>
+    <p
+      [ngClass]="isSorted && sortedAttribute === 'price' ? 'sort-popup--selected-p' : ''"
+      (click)="handlePriceClick()"
+    >Price</p>
   </div>
 </div>
