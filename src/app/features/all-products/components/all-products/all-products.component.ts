@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ProductsSearchBarComponent} from '../products-search/products-search-bar/products-search-bar.component';
-import {IProductsDTO} from '../../models/IProductsDTO';
 import {ProductsService} from '../../services/products.service';
 import {ProductBoxComponent} from '../../../../shared/products/product-box/product-box.component';
 import {NgForOf} from '@angular/common';
@@ -25,13 +24,8 @@ export class AllProductsComponent {
   totalPages: number = 1;
   limitPerPage: number = 15;
 
-  // variables for sorting
-  isSorted: boolean = false;
-  sortedAttribute: string = "title";
-  sortedOrder: string = "asc";
-
   // variable for searching
-  search: string = "hi";
+  search: string = "";
 
   constructor(private productsService: ProductsService, private pageService: PageService) { }
 
@@ -48,14 +42,14 @@ export class AllProductsComponent {
     });
 
     // Get all the products
-    this.productsService.getAllProducts(this.limitPerPage, 0, false, "").subscribe({
+    this.productsService.getAllProducts(this.limitPerPage, 0, "").subscribe({
       next: data => {
         this.allProducts = data.products;
 
         // Set the total pages
         this.pageService.setTotalPages(Math.ceil(data.total / this.limitPerPage));
       }
-    })
+    });
   }
 
   // ADD SOMETHING SO WHEN A CHANGE IS DETECTED (IN SORTING, SEARCH...) YOU CALL A FUNCTION THAT GETS US BACK TO THE FIRST PAGE + CALL API AGAIN
@@ -63,10 +57,7 @@ export class AllProductsComponent {
   // Handle the change of the page
   handlePageChange(): void {
     this.productsService.getAllProducts(
-      this.limitPerPage, (
-        this.currentPage - 1) * this.limitPerPage,
-        this.isSorted, this.search,
-        this.sortedAttribute, this.sortedOrder
+      this.limitPerPage, (this.currentPage - 1) * this.limitPerPage, this.search
     ).subscribe({
       next: data => {
         console.log(data);

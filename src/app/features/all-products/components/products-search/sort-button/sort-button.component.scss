@@ -28,3 +28,22 @@ path {
 :host:hover .sort--text {
   color: $primary-700;
 }
+
+.sort-popup--container {
+  position: absolute;
+  top: calc($spacing-lg - $spacing-sm);
+  right: 0;
+  background-color: white;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-popup--container p {
+  padding: $spacing-xs $spacing-lg;
+  cursor: pointer;
+}
+
+.sort-popup--container p:hover {
+  background-color: $secondary-200;
+}

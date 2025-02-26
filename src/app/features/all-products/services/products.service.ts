@@ -3,6 +3,7 @@ import {IProductsDTO} from '../models/IProductsDTO';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {SortService} from './sort.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +11,27 @@ import {HttpClient} from '@angular/common/http';
 export class ProductsService {
   apiUrl: string = `${environment.apiUrl}/products`;
 
-  constructor(private http: HttpClient) { }
+  isSorted: boolean = false;
+  sortedAttribute: string = "title";
+  sortedOrder: string = "asc";
+
+  constructor(private http: HttpClient, private sortService: SortService) {
+    // Subscribe to the sorted variables
+    this.sortService.isSorted$.subscribe(data => this.isSorted = data);
+    this.sortService.sortedAttribute$.subscribe(data => this.sortedAttribute = data);
+    this.sortService.sortedOrder$.subscribe(data => this.sortedOrder = data);
+  }
 
   getAllProducts(
-    limit: number, skip: number,
-    isSorted: boolean, search: string,
-    sortedAttribute?: string, sortedOrder?: string,
+    limit: number, skip: number, search: string
   ): Observable<IProductsDTO> {
 
     let regularQuery: string = `limit=${limit}&skip=${skip}&select=title,price,images`;
 
     let sortedQuery: string = "";
-    if (isSorted) {
-      sortedQuery = `&sortBy=${sortedAttribute}&order=${sortedOrder}`;
+
+    if (this.isSorted) {
+      sortedQuery = `&sortBy=${this.sortedAttribute}&order=${this.sortedOrder}`;
     }
 
     let searchQuery: string = ""
