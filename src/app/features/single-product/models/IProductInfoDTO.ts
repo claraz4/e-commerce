@@ -1,3 +1,5 @@
+import {IReviewDTO} from '../../../shared/single-product/models/IReviewDTO';
+
 export interface IProductInfoDTO {
   id:                   number;
   title:                string;
@@ -15,7 +17,7 @@ export interface IProductInfoDTO {
   warrantyInformation:  string;
   shippingInformation:  string;
   availabilityStatus:   string;
-  reviews:              Review[];
+  reviews:              IReviewDTO[];
   returnPolicy:         string;
   minimumOrderQuantity: number;
   meta:                 Meta;
@@ -34,12 +36,4 @@ interface Meta {
   updatedAt: Date;
   barcode:   string;
   qrCode:    string;
-}
-
-interface Review {
-  rating:        number;
-  comment:       string;
-  date:          Date;
-  reviewerName:  string;
-  reviewerEmail: string;
 }

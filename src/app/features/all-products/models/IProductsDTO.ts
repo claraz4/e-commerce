@@ -1,4 +1,4 @@
-import {IProductInfoDTO} from './IProductInfoDTO';
+import {IProductInfoDTO} from '../../single-product/models/IProductInfoDTO';
 
 export interface IProductsDTO {
   limit: number;

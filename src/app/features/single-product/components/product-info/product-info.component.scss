@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-xl;
+}
+
+.single-product--img-container {
+  min-width: 50%;
+  height: 550px;
+  background-color: $grey-200;
+  border-radius: 10px;
+}
+
+.single-product--heart-icon {
+  width: 37px;
+  height: 37px;
+}
+
+.single-product--heart-icon:hover {
+  cursor: pointer;
+  fill: $grey-200;
+}
+
+.single-product--heart-icon path {
+  fill: $primary-text;
+}
+
+.single-product--cart-wishlist-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: $spacing-md;
+}
+
+.single-product--full-info h3 {
+  font-weight: 300;
+}
+
+.single-product--full-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: $spacing-md;
+}

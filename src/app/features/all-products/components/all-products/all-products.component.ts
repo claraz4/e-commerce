@@ -3,7 +3,7 @@ import {ProductsSearchBarComponent} from '../products-search/products-search-bar
 import {ProductsService} from '../../services/products.service';
 import {ProductBoxComponent} from '../../../../shared/products/product-box/product-box.component';
 import {NgForOf, NgIf} from '@angular/common';
-import {IProductInfoDTO} from '../../models/IProductInfoDTO';
+import {IProductInfoDTO} from '../../../single-product/models/IProductInfoDTO';
 import {PaginationComponent} from "../../../../shared/pagination/components/pagination/pagination.component";
 import {PageService} from '../../../../shared/pagination/services/page-service.service';
 

@@ -1,0 +1,28 @@
+@use 'variables' as *;
+
+:host {
+  column-gap: $spacing-sm;
+  align-items: center;
+}
+
+.rating--stars-container,
+:host{
+  display: flex;
+  flex-direction: row;
+}
+
+.rating--svg {
+  width: 40px;
+  height: 40px;
+  margin-right: -4px;
+}
+
+.rating--path {
+  fill: $star-yellow;
+}
+
+.rating--p {
+  font-weight: 300;
+  color: $grey-400;
+  margin-top: 8px;
+}

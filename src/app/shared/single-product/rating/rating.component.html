@@ -1,0 +1,14 @@
+<div class="rating--stars-container">
+  <svg
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+    class="rating--svg"
+    *ngFor="let star of starsDisplay"
+  >
+    <path
+      class="rating--path"
+      [attr.d]="starSVGs[star]"
+    ></path>
+  </svg>
+</div>
+
+<p class="rating--p">{{ totalReviews }} Reviews</p>
