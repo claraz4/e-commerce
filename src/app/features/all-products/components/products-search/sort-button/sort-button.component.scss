@@ -21,11 +21,11 @@ path {
   color: $primary-500;
 }
 
-:host:hover path {
+.sort--icon:hover path {
   fill: $primary-700;
 }
 
-:host:hover .sort--text {
+.sort--text:hover {
   color: $primary-700;
 }
 
@@ -47,4 +47,15 @@ path {
 .sort-popup--container p:hover,
 .sort-popup--selected-p {
   background-color: $secondary-200 !important;
+}
+
+.sort--icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sort--icon path {
+  fill: $primary-500;
+  stroke-width: 0.25px;
+  stroke: $primary-500;
 }

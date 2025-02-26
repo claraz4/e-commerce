@@ -22,7 +22,7 @@ export class SortButtonComponent {
     this.showIsSorted = !this.showIsSorted;
   }
 
-  // Toggle the state
+  // Toggle the state of the sorting
   handleNameClick() {
     if (this.isSorted && this.sortedAttribute === "title") {
       // it was already sorted by title, remove the sorting
@@ -33,6 +33,15 @@ export class SortButtonComponent {
     } else {
       // it was not sorted
       this.setSorting("title");
+    }
+  }
+
+  // Toggle the order of the sorting
+  handleSortOrderClick() {
+    if (this.sortedOrder === "asc") {
+      this.sortService.setSortedOrder("desc");
+    } else if (this.sortedOrder === "desc") {
+      this.sortService.setSortedOrder("asc");
     }
   }
 
