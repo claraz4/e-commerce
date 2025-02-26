@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {SearchService} from '../../../services/search.service';
 
 @Component({
@@ -8,6 +8,8 @@ import {SearchService} from '../../../services/search.service';
   styleUrl: './products-search.component.scss'
 })
 export class ProductsSearchComponent {
+  @Input() handleSettingsChange?: () => void;
+
   search: string = "";
 
   constructor(private searchService: SearchService) {
@@ -17,5 +19,9 @@ export class ProductsSearchComponent {
   handleEnterInput(event: Event) {
     const target = event.target as HTMLInputElement;
     this.searchService.setSearch(target.value);
+
+    if (this.handleSettingsChange) {
+      this.handleSettingsChange();
+    }
   }
 }

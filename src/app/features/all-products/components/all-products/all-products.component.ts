@@ -28,9 +28,7 @@ export class AllProductsComponent {
     // Subscribe to the current and total pages
     this.pageService.currentPage$.subscribe(data => this.currentPage = data);
     this.pageService.totalPage$.subscribe(data => this.totalPages = data);
-  }
 
-  ngOnInit() {
     this.handlePageChange = this.handlePageChange.bind(this); // to still be able to access the productsService in pagination
 
     // Get all the products
@@ -44,7 +42,17 @@ export class AllProductsComponent {
     });
   }
 
-  // ADD SOMETHING SO WHEN A CHANGE IS DETECTED (IN SORTING, SEARCH...) YOU CALL A FUNCTION THAT GETS US BACK TO THE FIRST PAGE + CALL API AGAIN
+  // Handle change in settings
+  handleSettingsChange = (): void => {
+    this.pageService.setCurrentPage(1);
+
+    this.productsService.getAllProducts(this.limitPerPage, 0).subscribe({
+      next: data => {
+        this.allProducts = data.products;
+        this.pageService.setTotalPages(Math.ceil(data.total / this.limitPerPage));
+      }
+    });
+  };
 
   // Handle the change of the page
   handlePageChange(): void {

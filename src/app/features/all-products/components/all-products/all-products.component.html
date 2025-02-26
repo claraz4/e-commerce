@@ -1,4 +1,6 @@
-<app-products-search-bar />
+<app-products-search-bar
+  [handleSettingsChange]="handleSettingsChange"
+/>
 <div class="products--container">
   <app-product-box
     *ngFor="let product of allProducts"

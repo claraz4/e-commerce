@@ -17,19 +17,6 @@ export class PaginationComponent {
   isFirstPage: boolean = true;
   isLastPage: boolean = true;
 
-  ngOnInit() {
-    // Subscribe to the current and total pages
-    this.pageService.currentPage$.subscribe(data => {
-      this.currentPage = data;
-    });
-
-    this.pageService.totalPage$.subscribe(data => {
-      this.totalPages = data;
-    });
-
-    this.updatePageFlags();
-  }
-
   // Handle click on prev arrow
   handlePrevClick() {
     this.pageService.decrementCurrentPage();
@@ -66,5 +53,18 @@ export class PaginationComponent {
     this.isLastPage = this.currentPage === this.totalPages;
   }
 
-  constructor(private pageService: PageService) { }
+  constructor(private pageService: PageService) {
+    // Subscribe to the current and total pages
+    this.pageService.currentPage$.subscribe(data => {
+      this.currentPage = data;
+      this.updatePageFlags();
+    });
+
+    this.pageService.totalPage$.subscribe(data => {
+      this.totalPages = data;
+      this.updatePageFlags();
+    });
+
+    this.updatePageFlags();
+  }
 }

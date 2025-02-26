@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FilterButtonComponent} from '../filter-button/filter-button.component';
 import {ProductsSearchComponent} from '../products-search/products-search.component';
 import {SortButtonComponent} from '../sort-button/sort-button.component';
@@ -14,5 +14,5 @@ import {SortButtonComponent} from '../sort-button/sort-button.component';
   styleUrl: './products-search-bar.component.scss'
 })
 export class ProductsSearchBarComponent {
-
+  @Input() handleSettingsChange?: () => void;
 }
