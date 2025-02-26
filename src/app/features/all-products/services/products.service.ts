@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {SortService} from './sort.service';
+import {SearchService} from './search.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,20 @@ export class ProductsService {
   sortedAttribute: string = "title";
   sortedOrder: string = "asc";
 
-  constructor(private http: HttpClient, private sortService: SortService) {
+  search: string = "";
+
+  constructor(private http: HttpClient, private sortService: SortService, private searchService: SearchService) {
     // Subscribe to the sorted variables
     this.sortService.isSorted$.subscribe(data => this.isSorted = data);
     this.sortService.sortedAttribute$.subscribe(data => this.sortedAttribute = data);
     this.sortService.sortedOrder$.subscribe(data => this.sortedOrder = data);
+
+    // Subscribe to search variable
+    this.searchService.search$.subscribe(data => this.search = data);
   }
 
   getAllProducts(
-    limit: number, skip: number, search: string
+    limit: number, skip: number
   ): Observable<IProductsDTO> {
 
     let regularQuery: string = `limit=${limit}&skip=${skip}&select=title,price,images`;
@@ -35,8 +41,8 @@ export class ProductsService {
     }
 
     let searchQuery: string = ""
-    if (search !== "") {
-      searchQuery = `/search?q=${search}&`;
+    if (this.search !== "") {
+      searchQuery = `/search?q=${this.search}&`;
     } else {
       regularQuery = "?" + regularQuery;
     }

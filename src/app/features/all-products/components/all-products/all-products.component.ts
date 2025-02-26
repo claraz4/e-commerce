@@ -24,25 +24,17 @@ export class AllProductsComponent {
   totalPages: number = 1;
   limitPerPage: number = 15;
 
-  // variable for searching
-  search: string = "";
-
-  constructor(private productsService: ProductsService, private pageService: PageService) { }
+  constructor(private productsService: ProductsService, private pageService: PageService) {
+    // Subscribe to the current and total pages
+    this.pageService.currentPage$.subscribe(data => this.currentPage = data);
+    this.pageService.totalPage$.subscribe(data => this.totalPages = data);
+  }
 
   ngOnInit() {
     this.handlePageChange = this.handlePageChange.bind(this); // to still be able to access the productsService in pagination
 
-    // Subscribe to the current and total pages
-    this.pageService.currentPage$.subscribe(data => {
-      this.currentPage = data;
-    });
-
-    this.pageService.totalPage$.subscribe(data => {
-      this.totalPages = data;
-    });
-
     // Get all the products
-    this.productsService.getAllProducts(this.limitPerPage, 0, "").subscribe({
+    this.productsService.getAllProducts(this.limitPerPage, 0).subscribe({
       next: data => {
         this.allProducts = data.products;
 
@@ -56,12 +48,10 @@ export class AllProductsComponent {
 
   // Handle the change of the page
   handlePageChange(): void {
-    this.productsService.getAllProducts(
-      this.limitPerPage, (this.currentPage - 1) * this.limitPerPage, this.search
-    ).subscribe({
+    this.productsService.getAllProducts(this.limitPerPage, (this.currentPage - 1) * this.limitPerPage).subscribe({
       next: data => {
-        console.log(data);
         this.allProducts = data.products;
+        this.pageService.setTotalPages(Math.ceil(data.total / this.limitPerPage));
       }
     })
   }
