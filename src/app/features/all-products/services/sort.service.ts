@@ -1,27 +1,23 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SortService {
-  private isSortedSubject = new BehaviorSubject<boolean>(false);
-  private sortedOrderSubject = new BehaviorSubject<string>("asc");
-  private sortedAttributeSubject = new BehaviorSubject<string>("title");
-  isSorted$ = this.isSortedSubject.asObservable();
-  sortedOrder$ = this.sortedOrderSubject.asObservable();
-  sortedAttribute$ = this.sortedAttributeSubject.asObservable();
+  isSorted = signal<boolean>(false);
+  sortedOrder = signal<string>("asc");
+  sortedAttribute = signal<string>("title");
 
   setIsSorted(isSorted: boolean) {
-    this.isSortedSubject.next(isSorted);
+    this.isSorted.set(isSorted);
   }
 
   setSortedOrder(sortedOrder: string) {
-    this.sortedOrderSubject.next(sortedOrder);
+    this.sortedOrder.set(sortedOrder);
   }
 
   setSortedAttribute(sortedAttribute: string) {
-    this.sortedAttributeSubject.next(sortedAttribute);
+    this.sortedAttribute.set(sortedAttribute);
   }
 
   constructor() { }

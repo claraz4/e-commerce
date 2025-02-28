@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {IProductsDTO} from '../models/IProductsDTO';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
@@ -12,20 +12,25 @@ import {SearchService} from './search.service';
 export class ProductsService {
   apiUrl: string = `${environment.apiUrl}/products`;
 
-  isSorted: boolean = false;
-  sortedAttribute: string = "title";
-  sortedOrder: string = "asc";
+  private http = inject((HttpClient));
+  private sortService = inject((SortService));
+  private searchService = inject((SearchService));
 
-  search: string = "";
+  // Getters for the signals
+  get isSorted() {
+    return this.sortService.isSorted();
+  }
 
-  constructor(private http: HttpClient, private sortService: SortService, private searchService: SearchService) {
-    // Subscribe to the sorted variables
-    this.sortService.isSorted$.subscribe(data => this.isSorted = data);
-    this.sortService.sortedAttribute$.subscribe(data => this.sortedAttribute = data);
-    this.sortService.sortedOrder$.subscribe(data => this.sortedOrder = data);
+  get sortedAttribute() {
+    return this.sortService.sortedAttribute();
+  }
 
-    // Subscribe to search variable
-    this.searchService.search$.subscribe(data => this.search = data);
+  get sortedOrder() {
+    return this.sortService.sortedOrder();
+  }
+
+  get search() {
+    return this.searchService.search();
   }
 
   getAllProducts(

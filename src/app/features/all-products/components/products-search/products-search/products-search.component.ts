@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {SearchService} from '../../../services/search.service';
 
 @Component({
@@ -9,11 +9,11 @@ import {SearchService} from '../../../services/search.service';
 })
 export class ProductsSearchComponent {
   @Input() handleSettingsChange?: () => void;
+  private searchService = inject(SearchService);
 
-  search: string = "";
-
-  constructor(private searchService: SearchService) {
-    this.searchService.search$.subscribe(search => this.search = search);
+  // Getters for signals
+  get search() {
+    return this.searchService.search();
   }
 
   handleEnterInput(event: Event) {

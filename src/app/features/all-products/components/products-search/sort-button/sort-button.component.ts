@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {SortService} from '../../../services/sort.service';
 
@@ -14,10 +14,22 @@ import {SortService} from '../../../services/sort.service';
 export class SortButtonComponent {
   @Input() handleSettingsChange?: () => void;
 
+  private sortService = inject(SortService);
+
   showIsSorted: boolean = false;
-  isSorted: boolean = false;
-  sortedAttribute: string = "title";
-  sortedOrder: string = "asc";
+
+  // Getters for the signals
+  get isSorted() {
+    return this.sortService.isSorted();
+  }
+
+  get sortedAttribute() {
+    return this.sortService.sortedAttribute();
+  }
+
+  get sortedOrder() {
+    return this.sortService.sortedOrder();
+  }
 
   // Click on the sorted button
   handleSortedClick() {
@@ -28,6 +40,7 @@ export class SortButtonComponent {
   handleNameClick() {
     if (this.isSorted && this.sortedAttribute === "title") {
       // it was already sorted by title, remove the sorting
+      console.log(this.isSorted);
       this.resetSorting();
     } else if (this.isSorted && this.sortedAttribute === "price") {
       // it was sorted by price
@@ -96,11 +109,5 @@ export class SortButtonComponent {
     if (this.handleSettingsChange) {
       this.handleSettingsChange();
     }
-  }
-
-  constructor(private sortService: SortService) {
-    this.sortService.isSorted$.subscribe(data => this.isSorted = data);
-    this.sortService.sortedAttribute$.subscribe(data => this.sortedAttribute = data);
-    this.sortService.sortedOrder$.subscribe(data => this.sortedOrder = data);
   }
 }
