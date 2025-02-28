@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {ButtonComponent} from '../../../../shared/buttons/button/button.component';
+import {ButtonComponent} from '../../buttons/button/button.component';
 import {NgForOf, NgStyle} from '@angular/common';
-import {dummyWishlist} from '../../assets/dummyWishlist';
-import {ProductBoxComponent} from '../../../../shared/products/product-box/product-box.component';
+import {dummyWishlist} from '../../../features/all-products/assets/dummyWishlist';
+import {ProductBoxComponent} from '../product-box/product-box.component';
 
 @Component({
   selector: 'app-wish-list',

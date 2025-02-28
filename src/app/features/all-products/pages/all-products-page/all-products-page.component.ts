@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {WishListComponent} from '../../components/wish-list/wish-list.component';
+import {WishListComponent} from '../../../../shared/products/wish-list/wish-list.component';
 import {AllProductsComponent} from '../../components/all-products/all-products.component';
 
 @Component({
