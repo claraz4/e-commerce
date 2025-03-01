@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import {WishListComponent} from '../../../../shared/products/wish-list/wish-list.component';
+import {ProductsListComponent} from '../../../../shared/products/products-list/products-list.component';
 import {AllProductsComponent} from '../../components/all-products/all-products.component';
+import {dummyWishlist} from '../../assets/dummyWishlist';
 
 @Component({
   selector: 'app-all-products-page',
   imports: [
-    WishListComponent,
+    ProductsListComponent,
     AllProductsComponent
   ],
   templateUrl: './all-products-page.component.html',
@@ -13,4 +14,5 @@ import {AllProductsComponent} from '../../components/all-products/all-products.c
 })
 export class AllProductsPageComponent {
 
+  protected readonly dummyWishlist = dummyWishlist;
 }

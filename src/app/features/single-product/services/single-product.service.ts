@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {IProductInfoDTO} from '../models/IProductInfoDTO';
 import {IProductsDTO} from '../../all-products/models/IProductsDTO';
 import {IProductCategory} from '../models/IProductCategory';
+import {IProductInfo} from '../../../shared/products/models/IProductInfo';
 
 @Injectable({
   providedIn: 'root'
