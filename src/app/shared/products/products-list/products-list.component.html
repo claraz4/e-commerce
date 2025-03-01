@@ -10,13 +10,16 @@
 
   <div class="wishlist--products-container">
     <svg
-      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 24" class="flip-horizontal">
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 24" class="flip-horizontal"
+      [ngClass]="startIndex === 0 || products.length < elements ? 'disabled-arrow' : ''"
+      (click)="handlePrevClick()"
+    >
       <path fill-rule="evenodd" d="M10.157 12.711L4.5 18.368l-1.414-1.414l4.95-4.95l-4.95-4.95L4.5 5.64l5.657 5.657a1 1 0 0 1 0 1.414"
             stroke-width="0.5" />
     </svg>
 
     <app-product-box
-      *ngFor="let product of wishlist"
+      *ngFor="let product of products.slice(startIndex, startIndex + elements)"
       [imageSrc]="product.images[0]"
       [productName]="product.title"
       [productPrice]="product.price"
@@ -24,7 +27,10 @@
     />
 
     <svg
-      xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
+      xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
+      [ngClass]="startIndex === products.length - elements || products.length < elements ? 'disabled-arrow' : ''"
+      (click)="handleNextClick()"
+    >
       <path fill-rule="evenodd" d="M10.157 12.711L4.5 18.368l-1.414-1.414l4.95-4.95l-4.95-4.95L4.5 5.64l5.657 5.657a1 1 0 0 1 0 1.414"
             stroke-width="0.5" />
     </svg>
