@@ -38,7 +38,12 @@ path {
   stroke: $secondary-500;
 }
 
-svg:hover path {
+svg:hover path,
+.disabled-arrow path {
   fill: $secondary-700;
   stroke: $secondary-700;
+}
+
+.disabled-arrow {
+  cursor: auto;
 }

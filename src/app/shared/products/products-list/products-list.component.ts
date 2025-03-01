@@ -22,11 +22,19 @@ export class ProductsListComponent {
   @Input() isWishlist: boolean = false;
   @Input() title: string = "";
 
-  wishlist = this.products;
+  startIndex: number = 0;
+  elements: number = 3;
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['products'] && this.products) {
-      this.wishlist = [...this.products.slice(0,3)];
+  // Handle arrow clicks
+  handlePrevClick() {
+    if (this.startIndex !== 0) {
+      this.startIndex--;
+    }
+  }
+
+  handleNextClick() {
+    if (this.startIndex + this.elements !== this.products.length) {
+      this.startIndex++;
     }
   }
 }
