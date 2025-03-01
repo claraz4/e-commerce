@@ -1,4 +1,8 @@
 <div class="page--container all-products-page--container">
-  <app-wish-list />
+  <app-products-list
+    [products]="dummyWishlist"
+    [isWishlist]="true"
+    title="Wishlist"
+  />
   <app-all-products />
 </div>

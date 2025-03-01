@@ -5,4 +5,5 @@
   padding: $spacing-xl;
   display: flex;
   flex-direction: column;
+  row-gap: calc(2 * $spacing-xxl);
 }

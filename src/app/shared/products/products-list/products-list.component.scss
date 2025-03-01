@@ -1,13 +1,16 @@
 @use '../../../../styles/variables' as *;
 
-:host {
-  background-color: $primary-200;
+.wishlist--container {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: $spacing-lg;
   row-gap: $spacing-md;
+}
+
+.wishlist--container-class {
+  background-color: $primary-200;
+  padding: $spacing-lg;
 }
 
 .wishlist--title-container {
