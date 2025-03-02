@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+:host {
+  width: 65%;
+}
+
+.cart-items--header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  column-gap: $spacing-sm;
+  background-color: $primary-300;
+  padding: $spacing-sm;
+}
+
+.cart-items--header p {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.cart-item--big-cell {
+  width: 33%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-sm;
+}
+
+.cart-item--cell {
+  width: 16.67%;
+}
+
+.cart-item--small-cell {
+  width: 70px;
+}
+
+.cart-item--rest-cell {
+  flex-grow: 1;
+  align-items: center;
+}

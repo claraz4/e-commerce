@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-:host {
+.product-box--container {
   display: flex;
   flex-direction: column;
   row-gap: $spacing-xs;
@@ -40,3 +40,12 @@
   font-weight: 500;
 }
 
+.product-box--img-container:hover {
+  background-color: $grey-200;
+  cursor: pointer;
+}
+
+.product-box--info:hover {
+  color: $secondary-600;
+  cursor: pointer;
+}

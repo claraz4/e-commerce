@@ -20,6 +20,7 @@
 
     <app-product-box
       *ngFor="let product of products.slice(startIndex, startIndex + elements)"
+      [productId]="product.id"
       [imageSrc]="product.images[0]"
       [productName]="product.title"
       [productPrice]="product.price"

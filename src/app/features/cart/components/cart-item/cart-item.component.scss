@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  column-gap: $spacing-sm;
+  text-align: center;
+}
+
+.cart-item--big-cell {
+  width: 33%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-sm;
+}
+
+.cart-item--big-cell p {
+  flex-grow: 1;
+}
+
+.cart-item--cell {
+  width: 16.67%;
+}
+
+.cart-item--img-container {
+  width: 70px;
+  height: 70px;
+}
+
+.cart-item--img {
+  width: 70px;
+  height: auto;
+}
+
+.cart-item--quantity-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

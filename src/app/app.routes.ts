@@ -8,6 +8,7 @@ import {AllProductsPageComponent} from './features/all-products/pages/all-produc
 import {
   SingleProductPageComponent
 } from './features/single-product/pages/single-product-page/single-product-page.component';
+import {CartPageComponent} from './features/cart/pages/cart-page/cart-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent, pathMatch: 'full', canActivate: [authGuard] },
   { path: 'shop', component: AllProductsPageComponent, pathMatch: 'full' },
   { path: 'shop/:id', component: SingleProductPageComponent, pathMatch: 'full' },
+  { path: 'cart', component: CartPageComponent, pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, pathMatch: 'full', canActivate: [authGuard] },
 ];

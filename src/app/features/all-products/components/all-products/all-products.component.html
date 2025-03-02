@@ -4,6 +4,7 @@
 <div class="products--container">
   <app-product-box
     *ngFor="let product of allProducts"
+    [productId]="product.id"
     [productName]="product.title"
     [productPrice]="product.price"
     [imageSrc]="product.images[0]"

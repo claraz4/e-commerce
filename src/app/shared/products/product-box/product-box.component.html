@@ -1,8 +1,10 @@
-<div class="product-box--img-container" [ngClass]="isWhiteBg ? 'background-white' : ''">
-  <img [src]="imageSrc" alt="product" width="220px" height="auto" />
-</div>
+<div class="product-box--container" [routerLink]="['/shop', productId]">
+  <div class="product-box--img-container" [ngClass]="isWhiteBg ? 'background-white' : ''">
+    <img [src]="imageSrc" alt="product" width="220px" height="auto" />
+  </div>
 
-<div class="product-box--info">
-  <p class="product-box--product-name">{{ productName }}</p>
-  <p class="product-box--product-price">${{ productPrice }}</p>
+  <div class="product-box--info">
+    <p class="product-box--product-name">{{ productName }}</p>
+    <p class="product-box--product-price">${{ productPrice }}</p>
+  </div>
 </div>

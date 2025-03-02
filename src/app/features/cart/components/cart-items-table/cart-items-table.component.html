@@ -1,0 +1,21 @@
+<div class="cart-items--header">
+  <div class="cart-item--big-cell">
+    <p class="cart-item--small-cell opacity-0">hi</p>
+    <p class="cart-item--rest-cell">Product</p>
+  </div>
+  <p class="cart-item--cell">Price</p>
+  <p class="cart-item--cell">Quantity</p>
+  <p class="cart-item--cell">Total</p>
+  <p class="cart-item--cell opacity-0">hi</p>
+</div>
+
+<div class="cart-items--products">
+  <app-cart-item
+    *ngFor="let item of cart"
+    [item]="item.title"
+    [img]="item.thumbnail"
+    [price]="item.price"
+    [quantity]="item.quantity"
+    [total]="item.total"
+  />
+</div>
