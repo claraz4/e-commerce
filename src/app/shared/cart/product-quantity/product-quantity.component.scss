@@ -5,4 +5,18 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: calc($spacing-xxs * 1.02) calc($spacing-sm - $spacing-xxs);
+  width: fit-content;
+  border: 1.5px $grey-200 solid;
+  border-radius: 10px;
+  column-gap: calc($spacing-sm * 1.02);
+}
+
+.product-quantity--signs {
+  font-weight: 500;
+}
+
+.product-quantity--signs:hover {
+  color: $secondary-500;
+  font-weight: 600;
 }
