@@ -7,6 +7,7 @@
   width: 100%;
   column-gap: $spacing-sm;
   text-align: center;
+  border-bottom: 1px $grey-300 solid;
 }
 
 .cart-item--big-cell {
@@ -26,12 +27,15 @@
 }
 
 .cart-item--img-container {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-item--img {
-  width: 70px;
+  width: 80px;
   height: auto;
 }
 

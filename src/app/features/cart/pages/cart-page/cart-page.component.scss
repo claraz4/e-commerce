@@ -1,5 +1,15 @@
+@use 'variables' as *;
+
 :host {
-  margin-top: 80px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
+  padding: $spacing-lg;
+  row-gap: $spacing-sm;
+}
+
+.cart-page-container--container {
+  display: flex;
+  flex-direction: row;
+  column-gap: $spacing-xl;
 }

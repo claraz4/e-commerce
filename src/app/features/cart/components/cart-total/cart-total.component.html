@@ -1,1 +1,26 @@
-<p>cart-total works!</p>
+<h4>CART TOTAL</h4>
+
+<div class="cart-total--content-container">
+  <div class="cart-total--row">
+    <h6>Subtotal</h6>
+    <h5 class="cart-total--price">{{ cartInfo?.total | currency }}</h5>
+  </div>
+
+  <div class="cart-total--row">
+    <h6>Shipping</h6>
+    <h5 class="cart-total--price">{{ shippingFee | currency }}</h5>
+  </div>
+
+  <hr class="cart-total--hr">
+
+  <div class="cart-total--row">
+    <h6>Total</h6>
+    <h5 class="cart-total--total-price">{{ cartInfo && (cartInfo.total + shippingFee) | currency }}</h5>
+  </div>
+
+  <app-button
+    buttonText="Checkout"
+    buttonSize="small"
+    buttonClass="cart-total--button"
+  />
+</div>

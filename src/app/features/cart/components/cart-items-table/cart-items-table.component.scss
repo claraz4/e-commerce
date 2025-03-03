@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 :host {
-  width: 65%;
+  flex-grow: 1;
 }
 
 .cart-items--header {
@@ -13,9 +13,10 @@
   column-gap: $spacing-sm;
   background-color: $primary-300;
   padding: $spacing-sm;
+  border-radius: 5px;
 }
 
-.cart-items--header p {
+.cart-items--header h5 {
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -39,4 +40,9 @@
 .cart-item--rest-cell {
   flex-grow: 1;
   align-items: center;
+}
+
+.cart-items--products {
+  padding: $spacing-sm;
+  padding-top: 0;
 }
