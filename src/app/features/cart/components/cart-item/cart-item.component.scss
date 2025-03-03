@@ -8,6 +8,11 @@
   column-gap: $spacing-sm;
   text-align: center;
   border-bottom: 1px $grey-300 solid;
+  cursor: pointer;
+}
+
+:host:hover {
+  background-color: $primary-100;
 }
 
 .cart-item--big-cell {
@@ -44,4 +49,42 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.cart-item--eye-icon,
+.cart-item--bin-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.cart-item--eye-icon path,
+.cart-item--eye-icon circle {
+  stroke: $secondary-500;
+  stroke-width: 32px;
+}
+
+.cart-item--bin-icon {
+  fill: $secondary-500;
+}
+
+.cart-item--eye-icon:hover path,
+.cart-item--eye-icon:hover circle {
+  stroke: $secondary-700;
+}
+
+.cart-item--bin-icon:hover {
+  fill: $secondary-700;
+}
+
+.cart-item--icons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-xs;
+  justify-content: center;
+}
+
+.cart-item--small-cell {
+  width: 70px;
 }

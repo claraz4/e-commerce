@@ -13,8 +13,9 @@ import {NgClass} from '@angular/common';
 export class ButtonComponent {
   @Input() buttonSize: string = "large";
   @Input() buttonText: string = "";
-  @Output() onButtonClickCallback:EventEmitter<any>= new EventEmitter<any>();
   @Input() buttonClass: string = "";
+
+  @Output() onButtonClickCallback:EventEmitter<any>= new EventEmitter<any>();
   buttonClickCallback(){
     this.onButtonClickCallback.emit()
   }

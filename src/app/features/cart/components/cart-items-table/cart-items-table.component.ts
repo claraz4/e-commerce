@@ -16,11 +16,13 @@ import {NgFor} from '@angular/common';
 export class CartItemsTableComponent {
   private cartService = inject(CartService);
 
-  cart?: IProductCartDTO[];
+  // Get the cart products
+  get cart() {
+    return this.cartService.cartProducts();
+  }
 
-  constructor() {
-    this.cartService.getUserCart().subscribe({
-      next: data => this.cart = data.carts[0].products
-    })
+  // Track the items
+  trackItemFn(index: number, item: IProductCartDTO) {
+    return item.id;
   }
 }

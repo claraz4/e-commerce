@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {CartItemsTableComponent} from '../../components/cart-items-table/cart-items-table.component';
 import {CartTotalComponent} from '../../components/cart-total/cart-total.component';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -12,5 +13,14 @@ import {CartTotalComponent} from '../../components/cart-total/cart-total.compone
   styleUrl: './cart-page.component.scss'
 })
 export class CartPageComponent {
+  cartService = inject(CartService);
 
+  constructor() {
+    this.cartService.getUserCart().subscribe({
+      next: data => {
+        this.cartService.cartProducts.set(data.carts[0].products);
+        this.cartService.total.set(data.carts[0].total);
+      }
+    })
+  }
 }

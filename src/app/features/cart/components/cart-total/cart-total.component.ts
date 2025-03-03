@@ -1,6 +1,5 @@
 import {Component, inject} from '@angular/core';
 import {CartService} from '../../services/cart.service';
-import {ICartInfoDTO} from '../../models/ICartInfoDTO';
 import {CurrencyPipe} from '@angular/common';
 import {ButtonComponent} from '../../../../shared/buttons/button/button.component';
 
@@ -15,13 +14,9 @@ import {ButtonComponent} from '../../../../shared/buttons/button/button.componen
 })
 export class CartTotalComponent {
   private cartService = inject(CartService);
-
-  cartInfo?: ICartInfoDTO;
   shippingFee: number = 5;
 
-  constructor() {
-    this.cartService.getUserCart().subscribe({
-      next: data => this.cartInfo = data.carts[0]
-    })
+  get total() {
+    return this.cartService.total();
   }
 }

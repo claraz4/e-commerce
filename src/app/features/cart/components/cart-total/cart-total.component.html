@@ -3,7 +3,7 @@
 <div class="cart-total--content-container">
   <div class="cart-total--row">
     <h6>Subtotal</h6>
-    <h5 class="cart-total--price">{{ cartInfo?.total | currency }}</h5>
+    <h5 class="cart-total--price">{{ total | currency }}</h5>
   </div>
 
   <div class="cart-total--row">
@@ -15,7 +15,7 @@
 
   <div class="cart-total--row">
     <h6>Total</h6>
-    <h5 class="cart-total--total-price">{{ cartInfo && (cartInfo.total + shippingFee) | currency }}</h5>
+    <h5 class="cart-total--total-price">{{ (total + shippingFee) | currency }}</h5>
   </div>
 
   <app-button

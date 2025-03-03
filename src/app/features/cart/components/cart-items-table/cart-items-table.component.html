@@ -6,12 +6,13 @@
   <h5 class="cart-item--cell">Price</h5>
   <h5 class="cart-item--cell">Quantity</h5>
   <h5 class="cart-item--cell">Total</h5>
-  <h5 class="cart-item--cell opacity-0">hi</h5>
+  <h5 class="cart-item--small-cell opacity-0">hi</h5>
 </div>
 
 <div class="cart-items--products">
   <app-cart-item
-    *ngFor="let item of cart"
+    *ngFor="let item of cart; trackBy: trackItemFn"
+    [id]="item.id"
     [item]="item.title"
     [img]="item.thumbnail"
     [price]="item.price"

@@ -43,6 +43,9 @@
 }
 
 .cart-items--products {
-  padding: $spacing-sm;
-  padding-top: 0;
+  padding: 0 $spacing-sm $spacing-sm;
 }
+
+//.cart-item--small-cell {
+//  width: 10%;
+//}
