@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {IRefreshTokenDTO} from '../models/IRefreshTokenDTO';
 import {Router} from '@angular/router';
+import {throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,10 +35,18 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.http.post<IRefreshTokenDTO>(`${environment.authUrl}/auth/refresh`, {
-      refreshToken: this.getRefreshToken()
-    });
+    const refreshToken: string = this.getRefreshToken();
+    const accessToken: string = this.getAccessToken();
+
+    if (!refreshToken || !accessToken) {
+      return throwError(() => new Error('Failed to refresh token'))
+    } else {
+      return this.http.post<IRefreshTokenDTO>(`${environment.authUrl}/auth/refresh`, {
+        refreshToken: this.getRefreshToken()
+      })
+    }
   }
+
 
   constructor(
     private cookieService: CookieService,

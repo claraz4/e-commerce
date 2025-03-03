@@ -6,6 +6,7 @@ import {catchError, switchMap, throwError} from 'rxjs';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const accessToken = authService.getAccessToken();
+  const refreshToken = authService.getRefreshToken();
 
   // Add the token to the request if found
   const reqWithToken = accessToken ?
@@ -31,9 +32,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
             return next(retryReq);
           }),
           catchError(refreshError => {
-            // Log the user out if the refreshing failed
-            authService.logout();
-            return throwError(() => new Error('Session expired. Please log in again.'));
+            if (refreshToken !== "" || accessToken !== "") {
+              authService.logout();
+              return throwError(() => new Error('Session expired. Please log in again.'));
+            } else {
+              return throwError(() => new Error('Please log in and try again.'));
+            }
           })
         );
 
