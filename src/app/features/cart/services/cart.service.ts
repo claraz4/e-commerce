@@ -30,10 +30,43 @@ export class CartService {
       }
     }
 
-    // delete it from the list
     this.cartProducts.set(this.cartProducts().filter(item => item.id !== id));
 
     // update the total
     this.total.set(this.total() - totalPrice);
+  }
+
+  // Change product quantity
+  updateProductQuantity(id: number, decrement: boolean = false) {
+    let cart = this.cartProducts();
+    let newCart = [ ...cart ];
+    let newProduct: IProductCartDTO;
+
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === id) {
+        newProduct = cart[i];
+
+        if (decrement) {
+          if (newProduct.quantity === 1) {
+            this.deleteProduct(id);
+            return;
+          } else {
+            newProduct.quantity--;
+            newProduct.total -= newProduct.price;
+            this.total.set(this.total() - newProduct.price);
+          }
+        } else {
+          newProduct.quantity++;
+          newProduct.total += newProduct.price;
+          this.total.set(this.total() + newProduct.price);
+        }
+
+        newCart[i] = { ...newProduct };
+
+        break;
+      }
+    }
+
+    this.cartProducts.set(newCart);
   }
 }

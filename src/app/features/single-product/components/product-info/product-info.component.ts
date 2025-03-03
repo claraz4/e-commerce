@@ -25,7 +25,6 @@ export class ProductInfoComponent {
   ngOnInit() {
     this.singleProductService.getSingleProduct(this.id).subscribe(productInfo => {
       this.productInfo = productInfo;
-      console.log(productInfo);
     });
   }
 }

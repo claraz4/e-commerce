@@ -40,7 +40,6 @@ export class SortButtonComponent {
   handleNameClick() {
     if (this.isSorted && this.sortedAttribute === "title") {
       // it was already sorted by title, remove the sorting
-      console.log(this.isSorted);
       this.resetSorting();
     } else if (this.isSorted && this.sortedAttribute === "price") {
       // it was sorted by price

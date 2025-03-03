@@ -10,10 +10,11 @@
 
 <p class="cart-item--cell">{{ price | currency }}</p>
 
-<div class="cart-item--cell cart-item--quantity-container">
-  <p>-</p>
-  <p>{{ quantity }}</p>
-  <p>+</p>
+<div class="cart-item--cell">
+  <app-product-quantity
+    [quantity]="quantity"
+    [id]="id"
+  />
 </div>
 
 <p class="cart-item--cell">{{ total | currency }}</p>
