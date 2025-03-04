@@ -1,0 +1,12 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  padding: $spacing-md;
+}
+
+:host h2 {
+  margin-bottom: $spacing-md;
+}

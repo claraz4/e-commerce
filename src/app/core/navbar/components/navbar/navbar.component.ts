@@ -1,6 +1,6 @@
 import {Component, HostListener, SimpleChanges} from '@angular/core';
 import { NavbarSearchComponent } from '../navbar-search/navbar-search.component';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {NgClass, NgIf, NgStyle} from '@angular/common';
 import {AuthService} from '../../../authentication/services/auth.service';
 import {ProfileClickComponent} from '../profile-click/profile-click.component';
@@ -12,7 +12,8 @@ import {ProfileClickComponent} from '../profile-click/profile-click.component';
     NgStyle,
     NgIf,
     ProfileClickComponent,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'

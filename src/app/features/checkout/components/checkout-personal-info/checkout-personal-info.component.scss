@@ -1,0 +1,34 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  row-gap: $spacing-xl;
+}
+
+.checkout-personal-info--subcategory {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  row-gap: $spacing-xxs;
+}
+
+.checkout-personal-info--subcategory h4 {
+  color: $secondary-500;
+  margin-bottom: $spacing-xxs;
+}
+
+.checkout-personal-info--subinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-xs;
+}
+
+.checkout-personal-info--subinfo p:first-child {
+  font-weight: 400;
+}
+
+.checkout-personal-info--subinfo p:last-child {
+  font-weight: 300;
+}

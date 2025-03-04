@@ -16,7 +16,7 @@ export class AuthApiService {
 
   private http = inject(HttpClient);
 
-  userInfo = signal<IUserSignUpResponse | undefined>(undefined);
+  userInfo = signal<IUserInfoDTO | undefined>(undefined);
 
   login(form: IUserLogInForm) {
     return this.http.post<IUserLogInResponse>(`${this.authUrl}/auth/login`, form);
@@ -27,7 +27,6 @@ export class AuthApiService {
   }
 
   getAuthUser() {
-        console.log("here")
     return this.http.get<IUserInfoDTO>(`${this.authUrl}/user/me`).pipe(
       map(response => {
         this.userInfo.set(response);

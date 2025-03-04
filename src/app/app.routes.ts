@@ -9,6 +9,7 @@ import {
   SingleProductPageComponent
 } from './features/single-product/pages/single-product-page/single-product-page.component';
 import {CartPageComponent} from './features/cart/pages/cart-page/cart-page.component';
+import {CheckoutPageComponent} from './features/checkout/pages/checkout-page/checkout-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'shop', component: AllProductsPageComponent, pathMatch: 'full' },
   { path: 'shop/:id', component: SingleProductPageComponent, pathMatch: 'full' },
   { path: 'cart', component: CartPageComponent, pathMatch: 'full' },
+  { path: 'checkout', component: CheckoutPageComponent, pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, pathMatch: 'full', canActivate: [authGuard] },
 ];

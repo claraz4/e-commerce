@@ -1,0 +1,31 @@
+<div class="checkout-personal-info--subcategory">
+  <h4>Your Info</h4>
+  <div class="checkout-personal-info--subinfo">
+    <p>Name: </p>
+    <p>{{ userInfo?.firstName + " " + userInfo?.lastName }}</p>
+  </div>
+  <div class="checkout-personal-info--subinfo">
+    <p>Email: </p>
+    <p>{{ userInfo?.email }}</p>
+  </div>
+  <div class="checkout-personal-info--subinfo">
+    <p>Phone: </p>
+    <p>{{ userInfo?.phone }}</p>
+  </div>
+</div>
+
+<div class="checkout-personal-info--subcategory">
+  <h4>Shipping</h4>
+  <div class="checkout-personal-info--subinfo">
+    <p>Address: </p>
+    <p>{{ userInfo?.address?.address }}</p>
+  </div>
+  <div class="checkout-personal-info--subinfo">
+    <p>Location: </p>
+    <p>{{ userInfo?.address?.city + ", " + userInfo?.address?.country }}</p>
+  </div>
+  <div class="checkout-personal-info--subinfo">
+    <p>Postal Code: </p>
+    <p>{{ userInfo?.address?.postalCode }}</p>
+  </div>
+</div>

@@ -50,10 +50,16 @@
   align-items: center;
 }
 
+.navbar--links svg {
+  outline: none;
+  border: none;
+}
+
 .navbar-search-icons--container svg:hover,
 .navbar--search-icons-clicked {
   cursor: pointer;
   color: $secondary-500;
+  outline: none;
 }
 
 .navbar--sign-up {
