@@ -19,7 +19,7 @@ import {ICategoryDTO} from '../../models/ICategoryDTO';
 })
 export class BrowseCategoriesComponent {
   showMore: boolean = false;
-  categoriesLimit: number = 2;
+  categoriesLimit: number = 8;
 
   allCategories: ICategory[] = [];
   categories: ICategory[] = [];
