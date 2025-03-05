@@ -18,6 +18,10 @@
   color: $secondary-500;
 }
 
+.navbar--active-route {
+  color: $secondary-500 !important;
+}
+
 .navbar--links {
   display: flex;
   flex-direction: row;
