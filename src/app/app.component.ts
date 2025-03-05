@@ -7,6 +7,7 @@ import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import {NgxPermissionsModule} from 'ngx-permissions'
 import {AuthService} from './core/authentication/services/auth.service';
 import {AuthApiService} from './core/authentication/services/auth-api.service';
+import {DashboardComponent} from './core/navbar/dashboard/dashboard.component';
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
@@ -16,13 +17,14 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     NavbarComponent,
     FooterComponent,
     NgIf,
-    NgxPermissionsModule
+    NgxPermissionsModule,
+    DashboardComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  private router = inject(Router);
+  protected router = inject(Router);
   private authApiService = inject(AuthApiService);
   private authService = inject(AuthService);
 
