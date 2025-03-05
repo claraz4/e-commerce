@@ -1,0 +1,24 @@
+<h4>Billing Details</h4>
+<div class="checkout-payment--items-container">
+  <app-checkout-payment-item
+    *ngFor="let item of cartProducts"
+    [img]="item.thumbnail"
+    [title]="item.title"
+    [total]="item.total"
+    [quantity]="item.quantity"
+  />
+</div>
+<div class="checkout-payment--payment">
+  <div class="checkout-payment--payment-subsection">
+    <p>Shipping</p>
+    <h5>{{ shippingFee | currency }}</h5>
+  </div>
+  <div class="checkout-payment--payment-subsection">
+    <p>Total</p>
+    <h5>{{ (total + shippingFee) | currency }}</h5>
+  </div>
+</div>
+<app-button
+  buttonText="Place Order"
+  buttonSize="full"
+/>

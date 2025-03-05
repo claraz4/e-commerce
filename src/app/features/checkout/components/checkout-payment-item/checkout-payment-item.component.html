@@ -1,0 +1,13 @@
+<div class="checkout-payment-item--img-container">
+   <img
+     [src]="img"
+      class="checkout-payment-item--img"
+   />
+</div>
+<div class="checkout-payment-item--info-container">
+  <h6>{{ title }}</h6>
+  <div class="checkout-payment-item--info-p">
+    <p>x {{ quantity }}</p>
+    <p>{{ total | currency }}</p>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-sm;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.3);
+  padding-right: $spacing-sm;
+}
+
+.checkout-payment-item--img-container {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-payment-item--img-container img {
+  width: 55px;
+  height: auto;
+}
+
+.checkout-payment-item--info-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.checkout-payment-item--info-container h6 {
+  font-weight: 400;
+}
+
+.checkout-payment-item--info-p {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+

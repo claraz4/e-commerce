@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ICartsDTO} from '../models/ICartsDTO';
 import {environment} from '../../../../environments/environment';
 import {IProductCartDTO} from '../models/IProductCartDTO';
+import {tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,12 @@ export class CartService {
 
   // Get all products in cart
   getUserCart() {
-    return this.http.get<ICartsDTO>(`${environment.apiUrl}/carts/user/20`);
+    return this.http.get<ICartsDTO>(`${environment.apiUrl}/carts/user/20`).pipe(
+      tap(data => {
+        this.cartProducts.set(data.carts[0].products);
+        this.total.set(data.carts[0].total);
+      })
+    );
   }
 
   // Delete a cart product

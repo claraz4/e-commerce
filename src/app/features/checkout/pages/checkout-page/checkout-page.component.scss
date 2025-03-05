@@ -3,10 +3,22 @@
 :host {
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 70px;
   padding: $spacing-md;
+  width: 100%;
 }
 
 :host h2 {
   margin-bottom: $spacing-md;
+}
+
+.checkout-page--container {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkout-page--content-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }

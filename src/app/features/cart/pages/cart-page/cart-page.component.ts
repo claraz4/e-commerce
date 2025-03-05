@@ -16,11 +16,6 @@ export class CartPageComponent {
   cartService = inject(CartService);
 
   constructor() {
-    this.cartService.getUserCart().subscribe({
-      next: data => {
-        this.cartService.cartProducts.set(data.carts[0].products);
-        this.cartService.total.set(data.carts[0].total);
-      }
-    })
+    this.cartService.getUserCart().subscribe();
   }
 }

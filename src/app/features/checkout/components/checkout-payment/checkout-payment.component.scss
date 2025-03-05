@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+:host {
+  width: 45%;
+  padding: $spacing-md $spacing-lg;
+  background-color: $primary-200;
+}
+
+:host h4 {
+  color: $secondary-500;
+  margin-bottom: $spacing-sm;
+}
+
+.checkout-payment--items-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: $spacing-xs;
+  width: 100%;
+}
+
+.checkout-payment--payment {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  align-items: flex-end;
+  width: fit-content;
+  row-gap: $spacing-sm;
+  margin-top: $spacing-md;
+  margin-bottom: $spacing-lg;
+  font-size: 1.2rem;
+}
+
+.checkout-payment--payment-subsection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.checkout-payment--payment-subsection:first-child h5 {
+  font-weight: 200;
+}
+
+.checkout-payment--payment-subsection:last-child h5 {
+  color: $secondary-500;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
