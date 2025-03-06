@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {NavbarComponent} from './core/navbar/components/navbar/navbar.component';
 import {FooterComponent} from './core/footer/footer/footer.component';
