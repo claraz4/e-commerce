@@ -32,3 +32,12 @@
 .opacity-0 {
   opacity: 0;
 }
+
+.admin-pages {
+  display: flex;
+  height: 100%;
+  width: 80%;
+  margin-left: 20%;
+  background-color: $primary-100;
+  padding: $spacing-lg;
+}

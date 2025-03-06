@@ -1,5 +1,12 @@
 @use 'variables' as *;
 
+:host {
+  background-color: white;
+  height: fit-content;
+  padding: calc($spacing-sm * 1.2) $spacing-md;
+  border-radius: 5px;
+}
+
 .weekly-sales-comparison--container {
   width: 500px;
 }

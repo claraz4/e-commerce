@@ -1,126 +1,88 @@
-import { Component, ViewChild } from '@angular/core';
-import {
-  ChartConfiguration,
-  Chart,
-  ChartType,
-  LinearScale,
-  CategoryScale,
-  PointElement,
-  LineElement,
-  Title, Tooltip, Legend, LineController, Scale
-} from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
-import annotationPlugin from 'chartjs-plugin-annotation';
+import {Component, ViewChild} from '@angular/core';
 
-Chart.register(
-  LinearScale,
-  CategoryScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  LineController,
-  annotationPlugin
-);
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexDataLabels,
+  ApexTitleSubtitle,
+  ApexStroke,
+  ApexGrid
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  dataLabels: ApexDataLabels;
+  grid: ApexGrid;
+  stroke: ApexStroke;
+  title: ApexTitleSubtitle;
+};
 
 @Component({
-  selector: 'app-weekly-sales-comparison',
+  selector: "app-weekly-sales-comparison",
+  templateUrl: "./weekly-sales-comparison.component.html",
   imports: [
-    BaseChartDirective
+    ChartComponent
   ],
-  templateUrl: './weekly-sales-comparison.component.html',
-  styleUrl: './weekly-sales-comparison.component.scss'
+  styleUrls: ["./weekly-sales-comparison.component.scss"]
 })
 export class WeeklySalesComparisonComponent {
-  fontFamily: string = "Poppins";
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
 
-  lastWeekMain: string = '#44DBF4';
-  lastWeekDark: string = '#087688';
-  thisWeekMain: string = '#F63D68';
-  thisWeekDark: string = '#900928';
-
-  public lineChartData: ChartConfiguration['data'] = {
-    datasets: [
-      {
-        data: [814, 1398, 2432, 365, 523, 3212, 3953],
-        label: 'Last Week',
-        backgroundColor: this.lastWeekMain,
-        borderColor: this.lastWeekMain,
-        pointBackgroundColor: this.lastWeekDark,
-        pointBorderColor: this.lastWeekDark,
-        pointHoverBackgroundColor: this.lastWeekDark,
-        pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-        fill: 'origin',
-      },
-      {
-        data: [723, 253, 2121, 1909, 1523, 2856, 3032],
-        label: 'This Week',
-        backgroundColor: this.thisWeekMain,
-        borderColor: this.thisWeekMain,
-        pointBackgroundColor: this.thisWeekDark,
-        pointBorderColor: this.thisWeekDark,
-        pointHoverBackgroundColor: this.thisWeekDark,
-        pointHoverBorderColor: 'rgba(77,83,96,1)',
-        fill: 'origin',
-      }
-    ],
-    labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
-  }
-
-  public lineChartOptions: ChartConfiguration['options'] = {
-    elements: {
-      line: {
-        tension: 0.5,
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          font: {
-            size: 19,
-            family: this.fontFamily,
-            weight: 'normal'
-          }
+  constructor() {
+    this.chartOptions = {
+      series: [
+        {
+          name: "Last Week Revenues",
+          data: [10, 41, 35, 51, 49, 62, 69],
+          color: '#44DBF4'
+        },
+        {
+          name: "Next Week Revenues",
+          data: [49, 62, 69, 10, 41, 35, 51],
+          color: '#F63D68'
+        }
+      ],
+      chart: {
+        height: 300,
+        width: 400,
+        fontFamily: 'Poppins',
+        type: "line",
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
         }
       },
-      y: {
-        position: 'left',
-        ticks: {
-          font: {
-            family: this.fontFamily,
-            size: 16,
-            weight: 'normal',
-            lineHeight: 1.2,
-          },
-          callback: function(value: string | number) {
-            return '$' + value;
-          },
-        },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      grid: {
+        row: {
+          colors: ["#f3f3f3", "transparent"],
+          opacity: 0.5
+        }
+      },
+      xaxis: {
+        categories: [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thur",
+          "Fri",
+          "Sat",
+          "Sun"
+        ]
       }
-    },
-
-    plugins: {
-      legend: {
-        display: true,
-        labels: {
-          font: {
-            family: this.fontFamily,
-            size: 16,
-            weight: 'normal',
-          },
-          boxWidth: 12,
-          boxHeight: 10,
-        },
-      },
-      annotation: {
-        annotations: [],
-      },
-
-    },
-  };
-
-  public lineChartType: ChartType = 'line';
-
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+    };
+  }
 }
+

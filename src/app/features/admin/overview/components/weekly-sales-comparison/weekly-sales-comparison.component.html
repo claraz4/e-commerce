@@ -1,7 +1,10 @@
-<div class="weekly-sales-comparison--container">
-  <canvas baseChart
-          [data]="lineChartData"
-          [options]="lineChartOptions"
-          [type]="lineChartType">
-  </canvas>
-</div>
+<h4>Revenues</h4>
+<apx-chart
+  [series]="chartOptions.series!"
+  [chart]="chartOptions.chart!"
+  [xaxis]="chartOptions.xaxis!"
+  [dataLabels]="chartOptions.dataLabels!"
+  [grid]="chartOptions.grid!"
+  [stroke]="chartOptions.stroke!"
+  [title]="chartOptions.title!"
+></apx-chart>
