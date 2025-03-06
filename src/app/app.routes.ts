@@ -19,5 +19,5 @@ export const routes: Routes = [
   { path: 'shop/:id', component: SingleProductPageComponent, pathMatch: 'full' },
   { path: 'cart', component: CartPageComponent, pathMatch: 'full' },
   { path: 'checkout', component: CheckoutPageComponent, pathMatch: 'full' },
-  { path: 'admin', component: OverviewPageComponent, pathMatch: 'full', canActivate: [authGuard] },
+  { path: 'admin', component: OverviewPageComponent, pathMatch: 'full' },
 ];
