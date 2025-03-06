@@ -28,8 +28,6 @@ export class BrowseCategoriesComponent {
     this.getCategories();
   }
 
-  // handleShowMore = () => {};
-
   // Get the categories
   getCategories() {
     this.categoriesService.getCategories()

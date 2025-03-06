@@ -1,0 +1,8 @@
+<app-financial-summary-box
+  *ngFor="let finance of financialSummaryData"
+  [summaryTitle]="finance.summaryTitle"
+  [summaryDuration]="finance.summaryDuration"
+  [summaryMoney]="finance.summaryMoney"
+  [growth]="finance.growth"
+  [icon]="finance.icon"
+/>

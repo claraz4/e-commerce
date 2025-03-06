@@ -1,0 +1,36 @@
+<div class="financial-summary-box--title-container">
+  <div class="financial-summary-box--title">
+    <h5>{{ summaryTitle }}</h5>
+    <p>Last {{ summaryDuration }} days</p>
+  </div>
+  <div
+    class="financial-summary-box--icon-container"
+    [innerHTML]="iconSafeHtml"
+  ></div>
+</div>
+<div class="financial-summary-box--finances-container">
+  <h4>{{ summaryMoney | currency }}</h4>
+  <div class="financial-summary-box--growth">
+    <!--  arrow up  -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 2048"
+      *ngIf="growth > 0"
+      class="growth-arrow positive-growth-arrow"
+    >
+      <path d="M2048 384v640h-128V603l-768 768l-384-384l-675 674l-90-90l765-766l384 384l677-677h-421V384z" stroke-width="51" />
+    </svg>
+
+    <!--  arrow down  -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 2048"
+      *ngIf="growth < 0"
+      class="growth-arrow negative-growth-arrow"
+    >
+      <path fill="#707070" d="M1920 1024h128v640h-640v-128h421l-677-677l-384 384L3 477l90-90l675 674l384-384l768 768z" stroke-width="51" stroke="#707070" />
+    </svg>
+
+    <p
+      [ngClass]="growth > 0 ? 'green-text' : 'red-text'"
+    >{{ Math.abs(growth) }}%</p>
+  </div>
+</div>

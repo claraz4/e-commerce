@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: $spacing-sm;
+  width: 33%;
+  row-gap: $spacing-md;
+}
+
+.financial-summary-box--title-container,
+.financial-summary-box--finances-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.financial-summary-box--icon-container {
+  background-color: $secondary-100;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.financial-summary-box--title h6 {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.financial-summary-box--title p {
+  color: $grey-400;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.financial-summary-box--title {
+  display: flex;
+  flex-direction: column;
+}
+
+.financial-summary-box--growth {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: calc($spacing-xxs * 1.2);
+}
+
+.growth-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+.positive-growth-arrow path {
+  fill: $status-available-text;
+  stroke: $status-available-text;
+}
+
+.negative-growth-arrow path {
+  fill: $status-out-of-stock-text;
+  stroke: $status-out-of-stock-text;
+}
+
+.green-text {
+  color: $status-available-text;
+}
+
+.red-text {
+  color: $status-out-of-stock-text;
+}

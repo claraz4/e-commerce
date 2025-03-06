@@ -1,5 +1,11 @@
 @use 'variables' as *;
 
+.overview-page--container {
+  display: flex;
+  flex-direction: column;
+  row-gap: $spacing-lg;
+}
+
 .admin-overview--row {
   display: flex;
   flex-direction: row;

@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  column-gap: $spacing-md;
+}
+
+.financial-icon-1 path {
+  fill: $secondary-500;
+}
+
+.financial-icon-2 path {
+  color: $secondary-500;
+}
