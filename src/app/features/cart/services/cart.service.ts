@@ -9,10 +9,6 @@ import {tap} from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  private http = inject(HttpClient);
-
-  apiUrl: string = environment.apiUrl;
-
   cartProducts = signal<IProductCartDTO[]>([]);
   total = signal<number>(0);
 
@@ -72,5 +68,15 @@ export class CartService {
     }
 
     this.cartProducts.set(newCart);
+  }
+
+  // Check if the product is in the cart
+  getProductQuantity(id: number): number {
+    for (let item of this.cartProducts()) {
+      if (item.id === id) {
+        return item.quantity;
+      }
+    }
+    return 0;
   }
 }

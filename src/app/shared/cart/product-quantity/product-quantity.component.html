@@ -1,9 +1,14 @@
-<p
-  (click)="cartService.updateProductQuantity(id, true)"
-  class="product-quantity--signs"
->-</p>
-<p>{{ quantity }}</p>
-<p
-  (click)="cartService.updateProductQuantity(id)"
-  class="product-quantity--signs"
->+</p>
+<div
+  class="product-quantity--container"
+  [ngClass]="isBig ? 'product-quantity--big-container' : 'product-quantity--small-container'"
+>
+  <p
+    (click)="cartService.updateProductQuantity(id, true)"
+    class="product-quantity--signs"
+  >-</p>
+  <p>{{ quantity }}</p>
+  <p
+    (click)="cartService.updateProductQuantity(id)"
+    class="product-quantity--signs"
+  >+</p>
+</div>

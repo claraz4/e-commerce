@@ -5,6 +5,7 @@ import {CurrencyPipe, NgIf} from '@angular/common';
 import {ButtonComponent} from '../../../../shared/buttons/button/button.component';
 import {RatingComponent} from '../../../../shared/single-product/rating/rating.component';
 import {CartService} from '../../../cart/services/cart.service';
+import {ProductQuantityComponent} from '../../../../shared/cart/product-quantity/product-quantity.component';
 
 @Component({
   selector: 'app-product-info',
@@ -12,7 +13,8 @@ import {CartService} from '../../../cart/services/cart.service';
     CurrencyPipe,
     NgIf,
     ButtonComponent,
-    RatingComponent
+    RatingComponent,
+    ProductQuantityComponent
   ],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
@@ -22,7 +24,7 @@ export class ProductInfoComponent {
   productInfo!: IProductInfoDTO;
 
   private singleProductService = inject(SingleProductService);
-  private cartService = inject(CartService);
+  protected cartService = inject(CartService);
 
   ngOnInit() {
     this.singleProductService.getSingleProduct(this.id).subscribe(productInfo => {
@@ -43,4 +45,6 @@ export class ProductInfoComponent {
       thumbnail: this.productInfo.thumbnail
     });
   }
+
+  protected readonly Number = Number;
 }

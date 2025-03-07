@@ -1,19 +1,29 @@
 @use 'variables' as *;
 
-:host {
+.product-quantity--container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: calc($spacing-xxs * 1.02) calc($spacing-sm - $spacing-xxs);
   width: fit-content;
   border: 1.5px $grey-200 solid;
   border-radius: 10px;
+}
+
+.product-quantity--small-container {
+  padding: calc($spacing-xxs * 1.02) calc($spacing-sm - $spacing-xxs);
   column-gap: calc($spacing-sm * 1.02);
+}
+
+.product-quantity--big-container {
+  padding: $spacing-xxs calc($spacing-md - $spacing-sm);
+  column-gap: calc($spacing-sm * 1.2);
+  font-size: 1.4rem;
 }
 
 .product-quantity--signs {
   font-weight: 500;
+  cursor: pointer;
 }
 
 .product-quantity--signs:hover {

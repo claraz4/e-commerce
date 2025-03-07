@@ -26,6 +26,12 @@
       buttonText="Add to Cart"
       buttonSize="large"
       (click)="handleAddToCart()"
+      *ngIf="cartService.getProductQuantity(Number(id)) === 0"
+    />
+    <app-product-quantity
+      [id]="Number(id)"
+      [isBig]="true"
+      *ngIf="cartService.getProductQuantity(Number(id)) !== 0"
     />
     <!-- heart  -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="single-product--heart-icon">
