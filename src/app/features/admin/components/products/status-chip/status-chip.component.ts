@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ProductStatus} from '../../models/product-status';
+import {ProductStatus} from '../../../models/product-status';
 import {ICellRendererAngularComp} from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 

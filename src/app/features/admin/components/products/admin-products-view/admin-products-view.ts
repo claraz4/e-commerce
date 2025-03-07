@@ -5,14 +5,14 @@ import {StatusChipComponent} from '../status-chip/status-chip.component';
 import {ActionButtonComponent} from '../action-button/action-button.component';
 
 @Component({
-  selector: 'app-items-details',
+  selector: 'app-admin-products-view',
   imports: [
     AgGridAngular
   ],
-  templateUrl: './items-details.component.html',
-  styleUrl: './items-details.component.scss'
+  templateUrl: './admin-products-view.html',
+  styleUrl: './admin-products-view.scss'
 })
-export class ItemsDetailsComponent {
+export class AdminProductsView {
   myComponents= {
     'status': StatusChipComponent,
     'actions': ActionButtonComponent

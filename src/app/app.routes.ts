@@ -9,7 +9,7 @@ import {
 } from './features/single-product/pages/single-product-page/single-product-page.component';
 import {CartPageComponent} from './features/cart/pages/cart-page/cart-page.component';
 import {CheckoutPageComponent} from './features/checkout/pages/checkout-page/checkout-page.component';
-import {OverviewPageComponent} from './features/admin/overview/pages/overview-page/overview-page.component';
+import {AdminPageComponent} from './features/admin/pages/admin-page/admin-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -19,5 +19,5 @@ export const routes: Routes = [
   { path: 'shop/:id', component: SingleProductPageComponent, pathMatch: 'full' },
   { path: 'cart', component: CartPageComponent, pathMatch: 'full' },
   { path: 'checkout', component: CheckoutPageComponent, pathMatch: 'full' },
-  { path: 'admin', component: OverviewPageComponent, pathMatch: 'full' },
+  { path: 'admin', component: AdminPageComponent, pathMatch: 'full' },
 ];
