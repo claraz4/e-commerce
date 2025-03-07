@@ -13,9 +13,5 @@ import {CartService} from '../../../cart/services/cart.service';
   styleUrl: './checkout-page.component.scss'
 })
 export class CheckoutPageComponent {
-  private cartService = inject(CartService);
 
-  constructor() {
-    this.cartService.getUserCart().subscribe();
-  }
 }

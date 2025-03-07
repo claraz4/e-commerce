@@ -11,20 +11,21 @@
 
 <div class="single-product--full-info">
   <div>
-    <h2>{{ productInfo?.title }}</h2>
+    <h2>{{ productInfo.title }}</h2>
     <app-rating
       *ngIf="productInfo"
       [reviews]="productInfo.reviews"
     />
   </div>
 
-  <h3>{{ productInfo?.price | currency:'USD':'symbol' }}</h3>
-  <p>{{ productInfo?.description }}</p>
+  <h3>{{ productInfo.price | currency:'USD':'symbol' }}</h3>
+  <p>{{ productInfo.description }}</p>
 
   <div class="single-product--cart-wishlist-container">
     <app-button
       buttonText="Add to Cart"
       buttonSize="large"
+      (click)="handleAddToCart()"
     />
     <!-- heart  -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="single-product--heart-icon">

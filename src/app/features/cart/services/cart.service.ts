@@ -16,14 +16,12 @@ export class CartService {
   cartProducts = signal<IProductCartDTO[]>([]);
   total = signal<number>(0);
 
-  // Get all products in cart
-  getUserCart() {
-    return this.http.get<ICartsDTO>(`${environment.apiUrl}/carts/user/20`).pipe(
-      tap(data => {
-        this.cartProducts.set(data.carts[0].products);
-        this.total.set(data.carts[0].total);
-      })
-    );
+  // Add a cart product
+  addProduct(product: IProductCartDTO) {
+    const newCart = [ ...this.cartProducts() ];
+    newCart.push(product);
+    this.cartProducts.set(newCart);
+    this.total.set(this.total() + product.price * product.quantity);
   }
 
   // Delete a cart product
