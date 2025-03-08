@@ -1,4 +1,4 @@
-import {Component, HostListener, SimpleChanges} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import { NavbarSearchComponent } from '../navbar-search/navbar-search.component';
 import {Router, RouterLink} from '@angular/router';
 import {NgClass, NgIf, NgStyle} from '@angular/common';
