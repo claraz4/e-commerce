@@ -9,7 +9,7 @@ import {ICellRendererParams} from 'ag-grid-community';
   styleUrl: './action-button.component.scss'
 })
 export class ActionButtonComponent implements ICellRendererAngularComp {
-  params!: ICellRendererParams;
+  params!: any;
   agInit(params: ICellRendererParams): void {
     this.params = params;
   }
@@ -19,6 +19,6 @@ export class ActionButtonComponent implements ICellRendererAngularComp {
   }
 
   handleDelete() {
-    console.log(this.params);
+    this.params.onButtonClick(this.params.data.id);
   }
 }

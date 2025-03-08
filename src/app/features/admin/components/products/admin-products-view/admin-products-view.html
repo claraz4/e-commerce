@@ -1,9 +1,11 @@
 <ag-grid-angular
-  [rowData]="updatedRowData"
+  [rowData]="rowData"
   [columnDefs]="colDefs"
   [components]="myComponents"
   [pagination]="paginationInfo.pagination"
   [paginationPageSize]="paginationInfo.paginationPageSize"
   [paginationPageSizeSelector]="paginationInfo.paginationPageSizeSelector"
   class="product-details--grid"
+  [theme]="myTheme"
+  [defaultColDef]="defaultColDef"
 />

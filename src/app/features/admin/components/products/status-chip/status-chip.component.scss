@@ -6,11 +6,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  padding: $spacing-sm;
+  padding: 0 $spacing-sm;
   column-gap: $spacing-xs;
-  height: $spacing-md;
   width: fit-content;
+  height: fit-content;
   font-family: $primary-font;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03);
+  font-weight: 500;
 }
 
 .status--circle {

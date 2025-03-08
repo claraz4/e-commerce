@@ -41,3 +41,16 @@
   background-color: $primary-100;
   padding: $spacing-lg;
 }
+
+.ag-header-cell-label {
+  justify-content: center;
+}
+
+.ag-paging-panel {
+  font-family: $primary-font;
+}
+
+.ag-cell-focus:not(.ag-cell-range-selected):focus-within {
+  border-color: $secondary-500 !important;
+  outline: none;
+}

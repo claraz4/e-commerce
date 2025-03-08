@@ -19,13 +19,13 @@ export class StatusChipComponent implements ICellRendererAngularComp {
     bg: "status--available-bg",
     circle: "status--available-circle-bg"
   };
-  status: ProductStatus = 'Available';
+  status: ProductStatus = 'In Stock';
 
   agInit(params: ICellRendererParams): void{
     this.status = params.value;
 
     switch(this.status) {
-      case "Available":
+      case "In Stock":
         this.statusClass = {
           text: "status--available-text",
           bg: "status--available-bg",
@@ -33,7 +33,7 @@ export class StatusChipComponent implements ICellRendererAngularComp {
         };
         break;
 
-      case "Running Low":
+      case "Low Stock":
         this.statusClass = {
           text: "status--running-low-text",
           bg: "status--running-low-bg",

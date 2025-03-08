@@ -7,12 +7,12 @@ $background-color: #fdfdff;
 $error-red: #F03030;
 
 // User Feedback (Status)
-$status-available-text: #0aa637;
-$status-available-bg: #8fdca4;
+$status-available-text: #28c658;
+$status-available-bg: rgba(40, 198, 88, 0.2);
 $status-running-low-text: orange;
-$status-running-low-bg: #f1d7a9;
+$status-running-low-bg: rgba(255, 165, 0, 0.2);
 $status-out-of-stock-text: red;
-$status-out-of-stock-bg: #efbdbd;
+$status-out-of-stock-bg: rgba(255, 0, 0, 0.2);
 
 // Stars
 $star-yellow: #FFC61C;
@@ -36,7 +36,7 @@ $secondary-100: #FDE7EC;
 $secondary-200: #FBC0CE;
 $secondary-300: #F99AB0;
 $secondary-400: #F67392;
-$secondary-500: #F63D68;
+$secondary-500: #ea3d65;
 $secondary-600: #F1184B;
 $secondary-700: #C50C37;
 $secondary-800: #900928;

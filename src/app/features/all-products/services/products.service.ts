@@ -5,6 +5,8 @@ import {environment} from '../../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {SortService} from './sort.service';
 import {SearchService} from './search.service';
+import {IProductAdmin} from '../../admin/models/IProductAdmin';
+import {IProductsAdminDTO} from '../../admin/models/IProductsAdminDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +54,9 @@ export class ProductsService {
       regularQuery = "?" + regularQuery;
     }
     return this.http.get<IProductsDTO>(this.apiUrl + searchQuery + regularQuery + sortedQuery);
+  }
+
+  getAllProductsAdmin() {
+    return this.http.get<IProductsAdminDTO>(`${this.apiUrl}?limit=0&select=id,title,description,category,price,stock,availabilityStatus`);
   }
 }

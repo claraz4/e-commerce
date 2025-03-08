@@ -1,1 +1,1 @@
-export type ProductStatus = "Available" | "Running Low" | "Out of Stock";
+export type ProductStatus = "In Stock" | "Low Stock" | "Out of Stock";
