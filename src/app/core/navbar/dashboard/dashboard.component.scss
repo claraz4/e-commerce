@@ -2,14 +2,15 @@
 
 :host {
   background-color: $primary-300;
-  width: 20%;
-  height: 100%;
+  width: 100%;
+  height: fit-content;
   position: fixed;
   display: flex;
-  flex-direction: column;
-  row-gap: $spacing-sm;
+  flex-direction: row;
   align-items: center;
-  padding: $spacing-lg 0;
+  padding: $spacing-xs $spacing-md;
+  top: 0;
+  z-index: 1000;
 }
 
 :host h3 {

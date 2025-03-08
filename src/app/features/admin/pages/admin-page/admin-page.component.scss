@@ -6,4 +6,12 @@
   flex-direction: column;
   width: 100%;
   padding: $spacing-lg;
+  margin-top: 60px;
+  row-gap: $spacing-lg;
+}
+
+.admin-page--subcategory {
+  display: flex;
+  flex-direction: column;
+  row-gap: $spacing-sm;
 }

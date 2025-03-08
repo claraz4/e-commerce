@@ -49,7 +49,7 @@ export class WeeklySalesComparisonComponent {
       ],
       chart: {
         height: 280,
-        width: 420,
+        width: "100%",
         fontFamily: 'Poppins',
         type: "line",
         zoom: {

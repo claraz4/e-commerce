@@ -6,13 +6,13 @@
   justify-content: space-between;
   background-color: white;
   height: 100%;
-  width: fit-content;
+  width: 50%;
   padding: calc($spacing-sm * 1.2) $spacing-md calc($spacing-sm * 1.2) $spacing-lg;
   border-radius: 5px;
 }
 
 .customers-pie--text {
-  width: min-content;
+  //width: min-content;
   display: flex;
   flex-direction: column;
   row-gap: $spacing-sm;

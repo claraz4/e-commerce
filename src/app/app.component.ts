@@ -37,6 +37,8 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.showPageLayout = !this.showNoPageLayoutRoutes.includes(this.router.url);
+
+        if (this.router.url.includes('admin')) this.showPageLayout = false;
       }
     });
 
