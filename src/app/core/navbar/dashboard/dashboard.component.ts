@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {AuthApiService} from '../../authentication/services/auth-api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+  private authApiService = inject(AuthApiService);
 
+  get userInfo() {
+    return this.authApiService.userInfo();
+  }
 }
