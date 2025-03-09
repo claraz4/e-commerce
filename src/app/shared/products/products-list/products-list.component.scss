@@ -48,3 +48,20 @@ svg:hover path,
 .disabled-arrow {
   cursor: auto;
 }
+
+@media (max-width: 750px) {
+  .products-list--arrow {
+    display: none;
+  }
+
+  .wishlist--products-container {
+    overflow: scroll;
+    column-gap: $spacing-md;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .wishlist--products-container::-webkit-scrollbar {
+    display: none;
+  }
+}

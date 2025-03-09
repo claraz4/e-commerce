@@ -10,7 +10,7 @@
 
   <div class="wishlist--products-container">
     <svg
-      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 24" class="flip-horizontal"
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 24" class="flip-horizontal products-list--arrow"
       [ngClass]="startIndex === 0 || products.length < elements ? 'disabled-arrow' : ''"
       (click)="handlePrevClick()"
     >
@@ -29,6 +29,7 @@
 
     <svg
       xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
+      class="products-list--arrow"
       [ngClass]="startIndex === products.length - elements || products.length < elements ? 'disabled-arrow' : ''"
       (click)="handleNextClick()"
     >
