@@ -17,4 +17,17 @@
   align-content: center;
   row-gap: $spacing-md;
   place-items: center;
+  place-items: start;
+}
+
+@media (max-width: 890px) {
+  .products--container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  :host {
+    padding: $spacing-sm;
+  }
 }
