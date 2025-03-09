@@ -1,4 +1,5 @@
 <app-navbar *ngIf="showPageLayout" />
+<app-navbar-mobile *ngIf="showPageLayout" />
 <app-dashboard *ngIf="this.router.url.includes('admin')"/>
 <router-outlet />
 <app-footer *ngIf="showPageLayout" />

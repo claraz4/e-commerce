@@ -83,3 +83,9 @@
   display: flex;
   position: relative;
 }
+
+@media (max-width: 767px) {
+  :host {
+    display: none;
+  }
+}

@@ -8,6 +8,7 @@ import {NgxPermissionsModule} from 'ngx-permissions'
 import {AuthService} from './core/authentication/services/auth.service';
 import {AuthApiService} from './core/authentication/services/auth-api.service';
 import {DashboardComponent} from './core/navbar/dashboard/dashboard.component';
+import {NavbarMobileComponent} from './core/navbar/components/navbar-mobile/navbar-mobile.component';
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
@@ -18,7 +19,8 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     FooterComponent,
     NgIf,
     NgxPermissionsModule,
-    DashboardComponent
+    DashboardComponent,
+    NavbarMobileComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

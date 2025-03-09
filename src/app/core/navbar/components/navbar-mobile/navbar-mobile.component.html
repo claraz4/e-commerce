@@ -1,0 +1,35 @@
+<img
+  src="assets/logo%20only.webp"
+  width="auto"
+  height="45px"
+  alt="Logo Icon"
+/>
+
+<div class="navbar-part2--container">
+  <a
+    class="navbar--sign-up"
+    href="/sign-up"
+    *ngIf="!isLoggedIn"
+  >Sign Up</a>
+  <div
+    class="navbar-icon"
+    (click)="handleNavbarClick()"
+    [ngClass]="isNavbarClicked ? 'change' : ''"
+  >
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+</div>
+
+<div
+  class="navbar--bg"
+  [ngClass]="isNavbarClicked ? 'slide-in--transform' : ''"
+>
+  <a href="/" [ngClass]="url === '/' ? 'navbar--active' : ''">Home</a>
+  <a href="/shop" [ngClass]="url.includes('/shop') ? 'navbar--active' : ''">Shop</a>
+  <a href="/cart" *ngIf="isLoggedIn" [ngClass]="url === '/cart' ? 'navbar--active' : ''">Cart</a>
+  <a *ngIf="isLoggedIn">Wishlist</a>
+  <a *ngIf="isLoggedIn">Settings</a>
+  <a *ngIf="isLoggedIn" (click)="handleLogout()">Sign out</a>
+</div>
