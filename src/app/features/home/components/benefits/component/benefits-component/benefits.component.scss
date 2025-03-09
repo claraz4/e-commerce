@@ -12,3 +12,18 @@
   padding: $spacing-xl;
   column-gap: $spacing-xxl;
 }
+
+@media (max-width: 767px) {
+  :host {
+    column-gap: $spacing-lg;
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+@media (max-width: 640px) {
+  :host {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: $spacing-lg;
+  }
+}
