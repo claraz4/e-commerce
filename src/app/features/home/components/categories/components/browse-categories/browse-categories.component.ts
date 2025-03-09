@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {categoriesIcons} from '../../assets/categoriesIcons';
 import {CategoryBoxComponent} from '../category-box/category-box.component';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {ButtonComponent} from '../../../../../../shared/buttons/button/button.component';
 import {CategoriesService} from '../../services/categories.service';
 import {ICategory} from '../../models/ICategory';
 import {ICategoryDTO} from '../../models/ICategoryDTO';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-browse-categories',
   imports: [
     CategoryBoxComponent,
     NgForOf,
-    ButtonComponent
+    ButtonComponent,
+    NgIf
   ],
   templateUrl: './browse-categories.component.html',
   styleUrl: './browse-categories.component.scss'
 })
 export class BrowseCategoriesComponent {
+  private breakpointObserver = inject(BreakpointObserver);
+  private categoriesService = inject(CategoriesService);
+
+  isTablet: boolean = false;
+
   showMore: boolean = false;
   categoriesLimit: number = 8;
 
@@ -34,7 +41,11 @@ export class BrowseCategoriesComponent {
       .subscribe({
         next: (data) => {
           this.createCategories(data);
-          this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
+          if (this.isTablet) {
+            this.categories = [ ...this.allCategories ];
+          } else {
+            this.categories = [ ...this.allCategories.slice(0,this.categoriesLimit) ];
+          }
         },
         error: (error) => {
           console.error('Error fetching categories:', error);
@@ -64,5 +75,8 @@ export class BrowseCategoriesComponent {
     }
   }
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor() {
+    this.breakpointObserver.observe(['(max-width: 767px)'])
+      .subscribe(result => this.isTablet = result.matches);
+  }
 }

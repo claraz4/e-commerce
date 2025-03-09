@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: center;
   width: 240px;
+  min-width: 240px;
+  max-width: 240px;
   height: 190px;
   row-gap: calc($spacing-md - $spacing-xs);
 }
@@ -30,4 +32,12 @@
 .category-box--icon {
   width: fit-content;
   display: flex;
+}
+
+@media (max-width: 890px) {
+  :host {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
 }

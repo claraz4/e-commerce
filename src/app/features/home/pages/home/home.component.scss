@@ -9,3 +9,9 @@
 .section--padding {
   padding: $spacing-xl;
 }
+
+@media (max-width: 520px) {
+  .section--padding {
+    padding: $spacing-md;
+  }
+}

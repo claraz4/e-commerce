@@ -10,9 +10,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: $spacing-md;
+  place-items: center;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categories--container::-webkit-scrollbar {
+  display: none;
 }
 
 :host app-button {
   align-self: center;
   margin-top: $spacing-xs
+}
+
+@media (max-width: 1200px) {
+  .categories--container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .categories--container {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    column-gap: $spacing-md;
+  }
 }

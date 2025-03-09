@@ -12,4 +12,5 @@
   buttonSize="small"
   [buttonText]="showMore ? 'Show less' : 'Show more'"
   (onButtonClickCallback)="handleShowMore()"
+  *ngIf="!isTablet"
 ></app-button>
