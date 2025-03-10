@@ -7,3 +7,9 @@
   flex-direction: column;
   row-gap: calc(2 * $spacing-xxl);
 }
+
+@media (max-width: 1024px) {
+  :host {
+    padding: $spacing-xl $spacing-md $spacing-md;
+  }
+}

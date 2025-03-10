@@ -45,3 +45,21 @@
   flex-direction: column;
   row-gap: $spacing-md;
 }
+
+.single-product--img {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  :host {
+    column-gap: $spacing-md;
+  }
+
+  .single-product--full-info h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 850px) {
+
+}
