@@ -16,8 +16,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-content: center;
   row-gap: $spacing-md;
-  place-items: center;
-  place-items: start;
+  justify-items: center;
+  align-items: start;
 }
 
 @media (max-width: 890px) {
@@ -26,7 +26,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 540px) {
   :host {
     padding: $spacing-sm;
   }

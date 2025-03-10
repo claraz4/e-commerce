@@ -23,3 +23,9 @@ path {
 :host:hover .sort--text {
   color: $primary-700;
 }
+
+@media (max-width: 450px) {
+  :host {
+    display: none;
+  }
+}
