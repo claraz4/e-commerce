@@ -10,6 +10,9 @@
   width: 100%;
   z-index: 100;
   display: none;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.02);
 }
 
 .navbar-icon {

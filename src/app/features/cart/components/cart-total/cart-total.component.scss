@@ -49,3 +49,11 @@
 .cart-total--row h6 {
   font-weight: 400;
 }
+
+@media (max-width: 1024px) {
+  :host {
+    width: 55%;
+    padding: $spacing-md;
+    max-width: 500px;
+  }
+}

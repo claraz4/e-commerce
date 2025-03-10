@@ -13,3 +13,10 @@
   flex-direction: row;
   column-gap: $spacing-xl;
 }
+
+@media (max-width: 1024px) {
+  .cart-page-container--container {
+    flex-direction: column;
+    row-gap: $spacing-lg;
+  }
+}
