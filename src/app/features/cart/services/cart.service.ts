@@ -9,8 +9,8 @@ import {tap} from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  cartProducts = signal<IProductCartDTO[]>([]);
-  total = signal<number>(0);
+  cartProducts = signal<IProductCartDTO[]>(this.loadCartFromStorage());
+  total = signal<number>(this.loadTotalFromStorage());
 
   // Add a cart product
   addProduct(product: IProductCartDTO) {
@@ -18,6 +18,7 @@ export class CartService {
     newCart.push(product);
     this.cartProducts.set(newCart);
     this.total.set(this.total() + product.price * product.quantity);
+    this.saveToStorage();
   }
 
   // Delete a cart product
@@ -34,6 +35,7 @@ export class CartService {
 
     // update the total
     this.total.set(this.total() - totalPrice);
+    this.saveToStorage();
   }
 
   // Change product quantity
@@ -68,6 +70,7 @@ export class CartService {
     }
 
     this.cartProducts.set(newCart);
+    this.saveToStorage();
   }
 
   // Check if the product is in the cart
@@ -78,5 +81,30 @@ export class CartService {
       }
     }
     return 0;
+  }
+
+  // Save the cart to local storage
+  saveCartToStorage() {
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts()));
+  }
+
+  saveTotalToStorage() {
+    localStorage.setItem('total', JSON.stringify(this.total()));
+  }
+
+  saveToStorage() {
+    this.saveCartToStorage();
+    this.saveTotalToStorage();
+  }
+
+  // Load the cart from the local storage
+  loadCartFromStorage(): IProductCartDTO[] {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  }
+
+  loadTotalFromStorage(): number {
+    const total = localStorage.getItem('total');
+    return total ? JSON.parse(total) : 0;
   }
 }
