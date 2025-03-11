@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../../../environments/environment';
@@ -9,8 +9,9 @@ import {ICategoryDTO} from '../models/ICategoryDTO';
 })
 export class CategoriesService {
   private apiUrl = environment.apiUrl;
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) { }
+  categorySelected = signal<string>("");
 
   // Get all categories
   getCategories(): Observable<ICategoryDTO[]> {

@@ -5,14 +5,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-right: $spacing-sm;
   border-radius: 10px;
   border: 2px $grey-200 solid;
-  width: 25%;
+  width: 100%;
 }
 
 :host(:focus-within) {
-  border: 2px $secondary-500 solid;
+  border: 2px $primary-500 solid;
 }
 
 path {

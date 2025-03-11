@@ -1,9 +1,12 @@
 import {Component, inject, Input} from '@angular/core';
 import {SearchService} from '../../../services/search.service';
+import {FilterButtonComponent} from '../filter-button/filter-button.component';
 
 @Component({
   selector: 'app-products-search',
-  imports: [],
+  imports: [
+    FilterButtonComponent
+  ],
   templateUrl: './products-search.component.html',
   styleUrl: './products-search.component.scss'
 })

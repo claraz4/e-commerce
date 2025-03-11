@@ -1,5 +1,22 @@
+
 @use 'global' as *;
 @use 'variables' as *;
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@use '_theme-colors' as theme;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: theme.$primary-palette,
+      tertiary: theme.$tertiary-palette,
+    ),
+    typography: Poppins,
+    density: 0,
+  ));
+}
 
 .page--container {
   padding: $spacing-lg;
@@ -53,4 +70,13 @@
 .ag-cell-focus:not(.ag-cell-range-selected):focus-within {
   border-color: $secondary-500 !important;
   outline: none;
+}
+
+.mdc-text-field--filled {
+  border-radius: 10px !important;
+  border-color: transparent !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border: none !important;
 }

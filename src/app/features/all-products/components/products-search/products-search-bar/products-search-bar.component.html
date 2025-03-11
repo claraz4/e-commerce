@@ -1,7 +1,9 @@
-<app-filter-button />
 <app-products-search
   [handleSettingsChange]="handleSettingsChange"
 />
-<app-sort-button
-  [handleSettingsChange]="handleSettingsChange"
-/>
+<div class="product-search-bar--filter-sort-container">
+<!--  <app-filter-button />-->
+  <app-sort-button
+    [handleSettingsChange]="handleSettingsChange"
+  />
+</div>

@@ -2,11 +2,17 @@
 
 :host {
   padding: $spacing-xs $spacing-sm;
-  border: 2px $grey-200 solid;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  column-gap: $spacing-sm;
+  width: 80%;
+}
+
+.product-search-bar--filter-sort-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $spacing-sm;
 }
