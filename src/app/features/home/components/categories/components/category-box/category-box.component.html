@@ -1,5 +1,10 @@
 <div
-  [innerHTML]="categoryIconSafeHtml"
-  class="category-box--icon"
-></div>
-<h5>{{ categoryName }}</h5>
+    class="category-box--container"
+    (click)="handleCategoryClick()"
+>
+  <div
+    [innerHTML]="categoryIconSafeHtml"
+    class="category-box--icon"
+  ></div>
+  <h5>{{ categoryName }}</h5>
+</div>

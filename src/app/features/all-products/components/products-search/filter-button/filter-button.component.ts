@@ -22,7 +22,6 @@ export class FilterButtonComponent {
   categories: string[] = [];
 
   protected categoriesService = inject(CategoriesService);
-  private productsService = inject(ProductsService);
   private destroy$ = new Subject<void>();
 
   handleCategoryChange(event: any) {
