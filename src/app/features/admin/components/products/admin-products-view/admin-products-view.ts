@@ -41,8 +41,10 @@ export class AdminProductsView {
       sortable: true,
       flex: 3,
       cellStyle: {
-        fontWeight: '500'
-      }
+        fontWeight: '500',
+        lineHeight: "20px"
+      },
+      wrapText: true
     },
     {
       field: "description",
