@@ -7,6 +7,7 @@ import {SortService} from './sort.service';
 import {SearchService} from './search.service';
 import {IProductAdmin} from '../../admin/models/IProductAdmin';
 import {IProductsAdminDTO} from '../../admin/models/IProductsAdminDTO';
+import {CategoriesService} from '../../home/components/categories/services/categories.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,10 @@ import {IProductsAdminDTO} from '../../admin/models/IProductsAdminDTO';
 export class ProductsService {
   apiUrl: string = `${environment.apiUrl}/products`;
 
-  private http = inject((HttpClient));
-  private sortService = inject((SortService));
-  private searchService = inject((SearchService));
+  private http = inject(HttpClient);
+  private sortService = inject(SortService);
+  private searchService = inject(SearchService);
+  private categoriesService = inject(CategoriesService);
 
   // Getters for the signals
   get isSorted() {
@@ -33,6 +35,10 @@ export class ProductsService {
 
   get search() {
     return this.searchService.search();
+  }
+
+  get categorySelected() {
+    return this.categoriesService.categorySelected();
   }
 
   getAllProducts(
@@ -53,8 +59,15 @@ export class ProductsService {
     } else {
       regularQuery = "?" + regularQuery;
     }
-    return this.http.get<IProductsDTO>(this.apiUrl + searchQuery + regularQuery + sortedQuery);
+
+    let categoryQuery = "";
+    if (this.categorySelected !== "") {
+      categoryQuery = `/category/${this.categorySelected.toLowerCase().replaceAll(' ', '-')}`;
+    }
+
+    return this.http.get<IProductsDTO>(this.apiUrl + categoryQuery + searchQuery + regularQuery + sortedQuery);
   }
+
 
   getAllProductsAdmin() {
     return this.http.get<IProductsAdminDTO>(`${this.apiUrl}?limit=0&select=id,title,description,category,price,stock,availabilityStatus`);

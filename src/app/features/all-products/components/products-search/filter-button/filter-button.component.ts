@@ -3,6 +3,7 @@ import {MatFormField, MatOption, MatSelect, MatLabel} from '@angular/material/se
 import {CategoriesService} from '../../../../home/components/categories/services/categories.service';
 import {FormsModule} from '@angular/forms';
 import {Subject, takeUntil} from 'rxjs';
+import {ProductsService} from '../../../services/products.service';
 
 @Component({
   selector: 'app-filter-button',
@@ -17,13 +18,19 @@ import {Subject, takeUntil} from 'rxjs';
   styleUrl: './filter-button.component.scss'
 })
 export class FilterButtonComponent {
+  @Input() handleSettingsChange?: () => void;
   categories: string[] = [];
 
   protected categoriesService = inject(CategoriesService);
+  private productsService = inject(ProductsService);
   private destroy$ = new Subject<void>();
 
   handleCategoryChange(event: any) {
     this.categoriesService.categorySelected.set(event.value);
+
+    if (this.handleSettingsChange) {
+      this.handleSettingsChange();
+    }
   }
 
   constructor() {
