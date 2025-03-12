@@ -11,9 +11,10 @@
       <div class="sign-in-up--form-row">
         <input
           type="text"
-          placeholder="Email or Phone Number"
+          placeholder="Username"
           name="credential"
           formControlName="username"
+          [ngClass]="error !== '' ? 'error-input' : ''"
         />
       </div>
       <div class="sign-in-up--form-row">
@@ -22,7 +23,14 @@
           placeholder="Enter your password"
           name="password"
           formControlName="password"
+          [ngClass]="error !== '' ? 'error-input' : ''"
         />
+        <p
+          *ngIf="error !== '' ? 'error-text' : ''"
+          class="error-text"
+        >
+          {{ error }}
+        </p>
         <p class="sign-in-up--switch-p">
           <span>Don't have an account? </span>
           <a href="/sign-up">Sign Up</a>

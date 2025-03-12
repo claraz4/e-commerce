@@ -8,7 +8,7 @@
   align-items: center;
   background-color: $background-color;
   color: $primary-text;
-  padding: $spacing-lg $spacing-xxl;
+  padding: $spacing-md calc($spacing-xxl * 2);
 }
 
 .sign-in-up--container,
