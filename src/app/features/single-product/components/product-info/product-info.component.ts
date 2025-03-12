@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, inject, Input} from '@angular/core';
 import {SingleProductService} from '../../services/single-product.service';
 import {IProductInfoDTO} from '../../models/IProductInfoDTO';
 import {CurrencyPipe, NgIf} from '@angular/common';
@@ -6,6 +6,7 @@ import {ButtonComponent} from '../../../../shared/buttons/button/button.componen
 import {RatingComponent} from '../../../../shared/single-product/rating/rating.component';
 import {CartService} from '../../../cart/services/cart.service';
 import {ProductQuantityComponent} from '../../../../shared/cart/product-quantity/product-quantity.component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-product-info',
@@ -25,10 +26,25 @@ export class ProductInfoComponent {
 
   private singleProductService = inject(SingleProductService);
   protected cartService = inject(CartService);
+  private route = inject(ActivatedRoute);
+  private cdr = inject(ChangeDetectorRef); // Inject ChangeDetectorRef
 
   ngOnInit() {
-    this.singleProductService.getSingleProduct(this.id).subscribe(productInfo => {
-      this.productInfo = productInfo;
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+
+      if (id) {
+        this.fetchProduct(id);
+      }
+    });
+  }
+
+  private fetchProduct(id: string) {
+    this.singleProductService.getSingleProduct(id).subscribe({
+      next: productInfo => {
+        this.productInfo = productInfo;
+        this.cdr.detectChanges();
+      }
     });
   }
 
