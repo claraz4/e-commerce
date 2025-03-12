@@ -11,6 +11,7 @@ import {CartPageComponent} from './features/cart/pages/cart-page/cart-page.compo
 import {CheckoutPageComponent} from './features/checkout/pages/checkout-page/checkout-page.component';
 import {AdminPageComponent} from './features/admin/pages/admin-page/admin-page.component';
 import {adminGuard} from './guards/adminGuard';
+import {checkoutGuard} from './guards/checkout.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'shop', component: AllProductsPageComponent, pathMatch: 'full' },
   { path: 'shop/:id', component: SingleProductPageComponent, pathMatch: 'full' },
   { path: 'cart', component: CartPageComponent, pathMatch: 'full', canActivate: [authGuard] },
-  { path: 'checkout', component: CheckoutPageComponent, pathMatch: 'full', canActivate: [authGuard] },
+  { path: 'checkout', component: CheckoutPageComponent, pathMatch: 'full', canActivate: [authGuard, checkoutGuard] },
   { path: 'admin', component: AdminPageComponent, pathMatch: 'full', canActivate: [adminGuard] },
 ];
+

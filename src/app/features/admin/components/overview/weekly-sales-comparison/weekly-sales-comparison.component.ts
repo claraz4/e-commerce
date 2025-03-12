@@ -5,6 +5,7 @@ import {
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
+  ApexYAxis,
   ApexDataLabels,
   ApexTitleSubtitle,
   ApexStroke,
@@ -15,6 +16,7 @@ export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
   dataLabels: ApexDataLabels;
   grid: ApexGrid;
   stroke: ApexStroke;
@@ -38,12 +40,12 @@ export class WeeklySalesComparisonComponent {
       series: [
         {
           name: "Last Week Revenues",
-          data: [10, 41, 35, 51, 49, 62, 69],
+          data: [1143, 243, 634, 514, 1958, 4528, 5231],
           color: '#44DBF4'
         },
         {
           name: "Next Week Revenues",
-          data: [49, 62, 69, 10, 41, 35, 51],
+          data: [1301, 1523, 123, 573, 3021, 5123, 2412],
           color: '#F63D68'
         }
       ],
@@ -81,7 +83,12 @@ export class WeeklySalesComparisonComponent {
           "Sat",
           "Sun"
         ]
-      }
+      },
+      yaxis: {
+        labels: {
+          formatter: (value: number) => `$${value.toLocaleString()}`
+        }
+      },
     };
   }
 }

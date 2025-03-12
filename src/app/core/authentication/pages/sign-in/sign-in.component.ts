@@ -5,12 +5,15 @@ import {IUserLogInForm} from '../../models/IUserLogInForm';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {AuthApiService} from '../../services/auth-api.service';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
   imports: [
     ButtonComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgClass,
+    NgIf
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: '../authentication.component.scss'
@@ -30,6 +33,8 @@ export class SignInComponent {
     });
   }
 
+  error: string = "";
+
   handleLogin() {
     const newForm: IUserLogInForm = this.signInForm.value;
     this.authApiService.login(newForm).subscribe({
@@ -37,7 +42,7 @@ export class SignInComponent {
         this.authService.storeToken(data.accessToken, data.refreshToken);
         this.router.navigate(['/']).then(r => {});
       },
-      error: err => { console.log(err) }
+      error: err => this.error = "Invalid username of password"
     });
   }
 }

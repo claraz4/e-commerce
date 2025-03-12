@@ -67,6 +67,13 @@
           formControlName="confirmPassword"
           [ngClass]="errors.hasOwnProperty('confirmPassword') ? 'error-input' : ''"
         />
+
+        <p
+          *ngIf="(errors.hasOwnProperty('password') && errors['password'] !== 'required') || errors.hasOwnProperty('confirmPassword') && errors['confirmPassword'] !== 'required' ? 'error-text' : ''"
+          class="error-text"
+        >
+          {{ errors['password'] || errors['confirmPassword'] }}
+        </p>
       </div>
       <p class="sign-in-up--switch-p">
         <span>Already have an account? </span>
