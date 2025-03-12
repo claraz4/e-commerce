@@ -6,8 +6,8 @@ interface FinancialSummaryData {
   icon: string;
 }
 
-const totalSales = 16239;
-const totalExpenses = 4270;
+const totalSales = 56129;
+const totalExpenses = 19284;
 
 const color = "#F63D68";
 
