@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {newArrivalsArr} from '../../../../assets/newArrivalsArr';
 
 @Component({
   selector: 'app-new-arrivals',
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class NewArrivalsComponent {
 
+  protected readonly newArrivalsArr = newArrivalsArr;
 }

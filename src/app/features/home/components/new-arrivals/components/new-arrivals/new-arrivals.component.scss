@@ -4,14 +4,13 @@
   display: flex;
   flex-direction: column;
   row-gap: calc($spacing-md - $spacing-xs);
-  padding: $spacing-xl;
-  padding-bottom: 0;
+  padding: $spacing-xl $spacing-xl 0;
 }
 
 .new-arrivals--container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 250px);
   grid-template-areas:
     "big big md md"
     "big big sm1 sm2";
@@ -22,8 +21,13 @@
 }
 
 .new-arrivals--img {
-  background-color: $grey-200;
+  background-color: $grey-100;
   border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-items: center;
+  padding: $spacing-md;
 }
 
 .big-img {
@@ -40,4 +44,44 @@
 
 .sm-img:nth-child(2) {
   grid-area: sm2;
+}
+
+.new-arrivals--pic {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .new-arrivals--container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    grid-template-areas:
+    "md md"
+    "sm1 sm2";
+    height: 400px;
+    column-gap: $spacing-xs;
+    row-gap: $spacing-xs;
+  }
+
+  :host {
+    padding: $spacing-md;
+  }
+
+  .big-img {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .new-arrivals--container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 150px);
+    grid-template-areas:
+    "md md"
+    "sm1 sm2";
+    height: 300px;
+    column-gap: $spacing-sm;
+    row-gap: $spacing-sm;
+  }
 }
