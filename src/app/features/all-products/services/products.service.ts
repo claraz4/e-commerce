@@ -61,7 +61,7 @@ export class ProductsService {
     }
 
     let categoryQuery = "";
-    if (this.categorySelected !== "") {
+    if (this.categorySelected !== "All Categories") {
       categoryQuery = `/category/${this.categorySelected.toLowerCase().replaceAll(' ', '-')}`;
     }
 

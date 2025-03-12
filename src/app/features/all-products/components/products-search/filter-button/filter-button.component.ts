@@ -36,7 +36,9 @@ export class FilterButtonComponent {
     this.categoriesService.getCategories()
       .pipe(takeUntil(this.destroy$))
       .subscribe(categories => {
-        this.categories = categories.map(category => category.name);
+        const newArr = ['All Categories'];
+        newArr.push(...categories.map(category => category.name));
+        this.categories = newArr;
       });
   }
 }

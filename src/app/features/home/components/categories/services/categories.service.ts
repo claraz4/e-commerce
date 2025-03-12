@@ -11,7 +11,7 @@ export class CategoriesService {
   private apiUrl = environment.apiUrl;
   private http = inject(HttpClient);
 
-  categorySelected = signal<string>("");
+  categorySelected = signal<string>("All Categories");
 
   // Get all categories
   getCategories(): Observable<ICategoryDTO[]> {
