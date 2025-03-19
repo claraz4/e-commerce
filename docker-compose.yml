@@ -1,0 +1,13 @@
+services:
+  fe-container:
+    image: e-commerce-fe
+    ports:
+      - "4200:4200"
+    networks:
+      - my-networks
+
+networks:
+  my-networks:
+    name: fe-network
+    external: true
+    driver: "bridge"
